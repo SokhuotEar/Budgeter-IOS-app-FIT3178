@@ -7,15 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31090B42A02260400EF2AB6 /* Transaction.swift */; };
+		E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1442A0CAAE60013979C /* OverviewViewController.swift */; };
+		E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */; };
+		E34434692A09EB1100FD791A /* ManageBudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34434682A09EB1100FD791A /* ManageBudgetTableViewController.swift */; };
 		E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA4F29FB628F0003D11F /* AppDelegate.swift */; };
 		E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5129FB628F0003D11F /* SceneDelegate.swift */; };
 		E376AA5429FB628F0003D11F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5329FB628F0003D11F /* ViewController.swift */; };
 		E376AA5729FB628F0003D11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5529FB628F0003D11F /* Main.storyboard */; };
 		E376AA5929FB62930003D11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5829FB62930003D11F /* Assets.xcassets */; };
 		E376AA5C29FB62930003D11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5A29FB62930003D11F /* LaunchScreen.storyboard */; };
+		E376AA8929FB7E4D0003D11F /* NewTransationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA8829FB7E4D0003D11F /* NewTransationViewController.swift */; };
+		E37EDC352A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EDC342A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift */; };
+		E37EDC3D2A0A269100DF0EF9 /* graphStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EDC3C2A0A269100DF0EF9 /* graphStructure.swift */; };
+		E3D2EA212A02498D0026B093 /* globalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA202A02498D0026B093 /* globalFunction.swift */; };
+		E3D2EA232A024C930026B093 /* databaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA222A024C930026B093 /* databaseController.swift */; };
+		E3D2EA262A024F270026B093 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA242A024F270026B093 /* Database.xcdatamodeld */; };
+		E3D2EA292A0365720026B093 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA282A0365720026B093 /* DatabaseProtocol.swift */; };
+		E3D2EA2B2A03659C0026B093 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA2A2A03659C0026B093 /* MulticastDelegate.swift */; };
+		E3D2EA2D2A036F480026B093 /* AllTransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA2C2A036F480026B093 /* AllTransactionsTableViewController.swift */; };
+		E3D2EA302A03A64A0026B093 /* AllTransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA2F2A03A64A0026B093 /* AllTransactionsTableViewCell.swift */; };
+		E3D2EA322A03C6310026B093 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA312A03C6310026B093 /* API.swift */; };
+		E3D2EA352A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */; };
+		E3DE53AF2A04AC510024C3FC /* TransactionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE53AE2A04AC510024C3FC /* TransactionSummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E376AA8029FB63020003D11F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E31090B42A02260400EF2AB6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E318B1442A0CAAE60013979C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSummaryViewController.swift; sourceTree = "<group>"; };
+		E34434682A09EB1100FD791A /* ManageBudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBudgetTableViewController.swift; sourceTree = "<group>"; };
 		E376AA4C29FB628F0003D11F /* 3178_Assignment_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3178_Assignment_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E376AA4F29FB628F0003D11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E376AA5129FB628F0003D11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +58,20 @@
 		E376AA5829FB62930003D11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E376AA5B29FB62930003D11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E376AA5D29FB62930003D11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E376AA8829FB7E4D0003D11F /* NewTransationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransationViewController.swift; sourceTree = "<group>"; };
+		E37EDC342A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeSummaryViewController.swift; sourceTree = "<group>"; };
+		E37EDC372A0A1F2800DF0EF9 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
+		E37EDC3C2A0A269100DF0EF9 /* graphStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphStructure.swift; sourceTree = "<group>"; };
+		E3D2EA202A02498D0026B093 /* globalFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalFunction.swift; sourceTree = "<group>"; };
+		E3D2EA222A024C930026B093 /* databaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseController.swift; sourceTree = "<group>"; };
+		E3D2EA252A024F270026B093 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		E3D2EA282A0365720026B093 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		E3D2EA2A2A03659C0026B093 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		E3D2EA2C2A036F480026B093 /* AllTransactionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsTableViewController.swift; sourceTree = "<group>"; };
+		E3D2EA2F2A03A64A0026B093 /* AllTransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsTableViewCell.swift; sourceTree = "<group>"; };
+		E3D2EA312A03C6310026B093 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		E3DE53AE2A04AC510024C3FC /* TransactionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +90,7 @@
 			children = (
 				E376AA4E29FB628F0003D11F /* 3178_Assignment_Project */,
 				E376AA4D29FB628F0003D11F /* Products */,
+				E37EDC362A0A1F2800DF0EF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +106,55 @@
 			isa = PBXGroup;
 			children = (
 				E376AA4F29FB628F0003D11F /* AppDelegate.swift */,
+				E3D2EA312A03C6310026B093 /* API.swift */,
 				E376AA5129FB628F0003D11F /* SceneDelegate.swift */,
-				E376AA5329FB628F0003D11F /* ViewController.swift */,
+				E3D2EA272A0365280026B093 /* Database */,
 				E376AA5529FB628F0003D11F /* Main.storyboard */,
 				E376AA5829FB62930003D11F /* Assets.xcassets */,
 				E376AA5A29FB62930003D11F /* LaunchScreen.storyboard */,
 				E376AA5D29FB62930003D11F /* Info.plist */,
+				E31090B42A02260400EF2AB6 /* Transaction.swift */,
+				E3D2EA2E2A036F4D0026B093 /* ViewControllers */,
+				E3D2EA202A02498D0026B093 /* globalFunction.swift */,
+				E3D2EA242A024F270026B093 /* Database.xcdatamodeld */,
+				E37EDC3C2A0A269100DF0EF9 /* graphStructure.swift */,
 			);
 			path = 3178_Assignment_Project;
+			sourceTree = "<group>";
+		};
+		E37EDC362A0A1F2800DF0EF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E37EDC372A0A1F2800DF0EF9 /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3D2EA272A0365280026B093 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E3D2EA222A024C930026B093 /* databaseController.swift */,
+				E3D2EA282A0365720026B093 /* DatabaseProtocol.swift */,
+				E3D2EA2A2A03659C0026B093 /* MulticastDelegate.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		E3D2EA2E2A036F4D0026B093 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E376AA8829FB7E4D0003D11F /* NewTransationViewController.swift */,
+				E376AA5329FB628F0003D11F /* ViewController.swift */,
+				E3D2EA2C2A036F480026B093 /* AllTransactionsTableViewController.swift */,
+				E3D2EA2F2A03A64A0026B093 /* AllTransactionsTableViewCell.swift */,
+				E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */,
+				E3DE53AE2A04AC510024C3FC /* TransactionSummaryViewController.swift */,
+				E34434682A09EB1100FD791A /* ManageBudgetTableViewController.swift */,
+				E37EDC342A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift */,
+				E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */,
+				E318B1442A0CAAE60013979C /* OverviewViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +167,7 @@
 				E376AA4829FB628F0003D11F /* Sources */,
 				E376AA4929FB628F0003D11F /* Frameworks */,
 				E376AA4A29FB628F0003D11F /* Resources */,
+				E376AA8029FB63020003D11F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -138,9 +229,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37EDC3D2A0A269100DF0EF9 /* graphStructure.swift in Sources */,
+				E37EDC352A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift in Sources */,
+				E376AA8929FB7E4D0003D11F /* NewTransationViewController.swift in Sources */,
+				E3D2EA232A024C930026B093 /* databaseController.swift in Sources */,
+				E3D2EA262A024F270026B093 /* Database.xcdatamodeld in Sources */,
+				E3DE53AF2A04AC510024C3FC /* TransactionSummaryViewController.swift in Sources */,
 				E376AA5429FB628F0003D11F /* ViewController.swift in Sources */,
+				E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */,
+				E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */,
 				E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */,
+				E3D2EA212A02498D0026B093 /* globalFunction.swift in Sources */,
+				E3D2EA2B2A03659C0026B093 /* MulticastDelegate.swift in Sources */,
+				E3D2EA322A03C6310026B093 /* API.swift in Sources */,
 				E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */,
+				E34434692A09EB1100FD791A /* ManageBudgetTableViewController.swift in Sources */,
+				E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */,
+				E3D2EA352A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift in Sources */,
+				E3D2EA2D2A036F480026B093 /* AllTransactionsTableViewController.swift in Sources */,
+				E3D2EA302A03A64A0026B093 /* AllTransactionsTableViewCell.swift in Sources */,
+				E3D2EA292A0365720026B093 /* DatabaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.monash.-178-Assignment-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -326,6 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.monash.-178-Assignment-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -356,6 +466,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E3D2EA242A024F270026B093 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E3D2EA252A024F270026B093 /* Database.xcdatamodel */,
+			);
+			currentVersion = E3D2EA252A024F270026B093 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E376AA4429FB628E0003D11F /* Project object */;
 }
