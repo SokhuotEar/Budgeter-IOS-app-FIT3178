@@ -36,7 +36,7 @@ protocol DatabaseProtocol: AnyObject {
     func deleteTransaction(transaction: Transaction, index: Int)
     
     // team
-    var allTransactions: AllTransactions {get set}
+    var allTransactions: [Transaction] {get set}
     var categories: [Category] {get set}
     var balance: Double {get}
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SpendingSummaryViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class SpendingSummaryViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
-        transactionList = databaseController?.allTransactions.allTransactions
+        transactionList = databaseController?.allTransactions
         categoryList = databaseController?.categories
         
         

@@ -23,7 +23,7 @@ class AllTransactionsTableViewController: UITableViewController {
         
         if let databaseController
         {
-            transactionList = databaseController.allTransactions.allTransactions
+            transactionList = databaseController.allTransactions
         }
 
     }
@@ -60,7 +60,7 @@ class AllTransactionsTableViewController: UITableViewController {
         
         if let databaseController
         {
-            transactionList = databaseController.allTransactions.allTransactions
+            transactionList = databaseController.allTransactions
         }
         
         tableView.reloadData()

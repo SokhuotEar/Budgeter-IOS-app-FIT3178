@@ -22,7 +22,7 @@ class IncomeSummaryViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
-        transactionList = databaseController?.allTransactions.allTransactions
+        transactionList = databaseController?.allTransactions
         categoryList = databaseController?.categories
         
 
