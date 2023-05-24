@@ -123,7 +123,7 @@ enum TransactionType{
 enum Recurring{
     case none
     case weekly
-    case fortnitely
+    case yearly
     case monthly
     
     var stringValue: String {
@@ -132,7 +132,7 @@ enum Recurring{
             return "None"
         case .weekly:
             return "Weekly"
-        case .fortnitely:
+        case .yearly:
             return "Fortnightly"
         case .monthly:
             return "Monthly"

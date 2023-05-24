@@ -20,10 +20,7 @@ class HomeViewController: UIViewController {
         {
             balanceLabel.text = String(balance)
         }
-        
-        
-        
-        
+   
         super.viewDidLoad()
         
         

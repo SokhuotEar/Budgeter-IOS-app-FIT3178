@@ -57,6 +57,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var toFromTextField: UITextField!
+    @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var noteTextField: UITextField!
     var transactionCategory: Category?
     
@@ -98,7 +99,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
         case 1:
             recurring = .weekly
         case 2:
-            recurring = .fortnitely
+            recurring = .yearly
         case 3:
             recurring = .monthly
         default:
@@ -125,9 +126,44 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
         }
         
         //add
-        let _ = databaseController?.addTransaction(transactionType: transactionType, amount: Double(amount) ?? 0, toFrom: toFrom, currency: .AUD, date: date, category: transactionCategory!, note: note, recurring: recurring)
+        let transaction = databaseController?.addTransaction(transactionType: transactionType, amount: Double(amount) ?? 0, toFrom: toFrom, currency: .AUD, date: date, category: transactionCategory!, note: note, recurring: recurring)
+        
+        guard let transaction else {
+            displayMessage(controller: self, title: "Error", message: "Problem processing the transaction")
+            return
+        }
+        
+        // set local notification
+        if (switchButton.isOn)
+        {
+            let calendar = Calendar.current
+            var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            
+            // make it repeat based on recurring:
+            switch recurring
+            {
+            case .monthly:
+                components = calendar.dateComponents([.day, .hour, .minute, .second], from: date)
+                
+            case .weekly:
+                let dayOfweek = components.weekdayOrdinal
+                components = calendar.dateComponents([.hour, .minute, .second], from: date)
+                components.weekday = dayOfweek
+                
+            case .yearly:
+                components = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: date)
+            
+            case .none:
+                components = calendar.dateComponents([.minute, .second], from: date)
+                
+        }
+                        
+            sendNotification(transaction: transaction, dateComponents: components, repetition: true)
+            
+        }
         
         navigationController?.popViewController(animated: true)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,7 +174,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
     }
     
     
-
+    
 
 }
 

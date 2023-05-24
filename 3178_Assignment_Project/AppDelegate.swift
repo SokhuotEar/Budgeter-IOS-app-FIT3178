@@ -8,15 +8,26 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
 
     var databaseController: DatabaseProtocol?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         databaseController = DatabaseController() as DatabaseProtocol
+        UNUserNotificationCenter.current().delegate = self;
         return true
     }
+    
+
+     // Run code and handle how notifications are presented while app is running.
+     func userNotificationCenter(_ center: UNUserNotificationCenter, transaction: Transaction, willPresent
+     notification: UNNotification, withCompletionHandler completionHandler:
+                                 @escaping (UNNotificationPresentationOptions) -> Void) {
+         let transaction = databaseController?.addTransaction(transactionType: transaction.transactionType, amount: transaction.amount, toFrom: transaction.toOrFrom, currency: .AUD, date: Date(), category: transaction.category, note: transaction.note, recurring: transaction.recurring)
+         completionHandler([.banner])
+     }
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -31,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+
 
 
 }

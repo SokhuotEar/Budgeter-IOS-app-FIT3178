@@ -10,10 +10,11 @@
 		E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31090B42A02260400EF2AB6 /* Transaction.swift */; };
 		E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1442A0CAAE60013979C /* OverviewViewController.swift */; };
 		E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */; };
+		E31C22DC2A16494000D7526F /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C22DB2A16494000D7526F /* LocalNotification.swift */; };
 		E34434692A09EB1100FD791A /* ManageBudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34434682A09EB1100FD791A /* ManageBudgetTableViewController.swift */; };
 		E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA4F29FB628F0003D11F /* AppDelegate.swift */; };
 		E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5129FB628F0003D11F /* SceneDelegate.swift */; };
-		E376AA5429FB628F0003D11F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5329FB628F0003D11F /* ViewController.swift */; };
+		E376AA5429FB628F0003D11F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5329FB628F0003D11F /* HomeViewController.swift */; };
 		E376AA5729FB628F0003D11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5529FB628F0003D11F /* Main.storyboard */; };
 		E376AA5929FB62930003D11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5829FB62930003D11F /* Assets.xcassets */; };
 		E376AA5C29FB62930003D11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E376AA5A29FB62930003D11F /* LaunchScreen.storyboard */; };
@@ -49,11 +50,12 @@
 		E31090B42A02260400EF2AB6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E318B1442A0CAAE60013979C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSummaryViewController.swift; sourceTree = "<group>"; };
+		E31C22DB2A16494000D7526F /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		E34434682A09EB1100FD791A /* ManageBudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBudgetTableViewController.swift; sourceTree = "<group>"; };
 		E376AA4C29FB628F0003D11F /* 3178_Assignment_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3178_Assignment_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E376AA4F29FB628F0003D11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E376AA5129FB628F0003D11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E376AA5329FB628F0003D11F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E376AA5329FB628F0003D11F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E376AA5629FB628F0003D11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E376AA5829FB62930003D11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E376AA5B29FB62930003D11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				E376AA8829FB7E4D0003D11F /* NewTransationViewController.swift */,
-				E376AA5329FB628F0003D11F /* ViewController.swift */,
+				E376AA5329FB628F0003D11F /* HomeViewController.swift */,
 				E3D2EA2C2A036F480026B093 /* AllTransactionsTableViewController.swift */,
 				E3D2EA2F2A03A64A0026B093 /* AllTransactionsTableViewCell.swift */,
 				E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */,
@@ -153,6 +155,7 @@
 				E37EDC342A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift */,
 				E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */,
 				E318B1442A0CAAE60013979C /* OverviewViewController.swift */,
+				E31C22DB2A16494000D7526F /* LocalNotification.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,11 +238,12 @@
 				E3D2EA232A024C930026B093 /* databaseController.swift in Sources */,
 				E3D2EA262A024F270026B093 /* Database.xcdatamodeld in Sources */,
 				E3DE53AF2A04AC510024C3FC /* TransactionSummaryViewController.swift in Sources */,
-				E376AA5429FB628F0003D11F /* ViewController.swift in Sources */,
+				E376AA5429FB628F0003D11F /* HomeViewController.swift in Sources */,
 				E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */,
 				E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */,
 				E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */,
 				E3D2EA212A02498D0026B093 /* globalFunction.swift in Sources */,
+				E31C22DC2A16494000D7526F /* LocalNotification.swift in Sources */,
 				E3D2EA2B2A03659C0026B093 /* MulticastDelegate.swift in Sources */,
 				E3D2EA322A03C6310026B093 /* API.swift in Sources */,
 				E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */,

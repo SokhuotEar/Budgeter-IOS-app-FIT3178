@@ -24,5 +24,26 @@ func convert(amount: Double, from: Currency, to: Currency)
     return
 }
 
+//func convert_from_date(amount: Double, from: Currency, to: Currency, date: Date)
+//{
+//
+//    let url = "https://api.apilayer.com/fixer/2023-02-01?symbols=EUR&base=AUD"
+//    var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
+//    request.httpMethod = "GET"
+//    request.addValue("v3V01N9HHslbAmD5tMLIzaNlGGlwwmXO", forHTTPHeaderField: "apikey")
+//
+//    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//      guard let data = data else {
+//        print(String(describing: error))
+//        return
+//      }
+//      print(String(data: data, encoding: .utf8)!)
+//      semaphore.signal()
+//    }
+//
+//    task.resume()
+//    semaphore.wait()
+//}
+
 
 

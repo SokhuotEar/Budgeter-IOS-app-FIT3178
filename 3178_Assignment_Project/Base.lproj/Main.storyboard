@@ -319,7 +319,7 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ry-pX-2Rb">
-                                <rect key="frame" x="288" y="544" width="85" height="35"/>
+                                <rect key="frame" x="288" y="580" width="85" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Confirm"/>
                                 <connections>
@@ -327,7 +327,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSO-Cg-aDH">
-                                <rect key="frame" x="201" y="544" width="77" height="35"/>
+                                <rect key="frame" x="201" y="580" width="77" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                             </button>
@@ -416,6 +416,15 @@
                                     <segue destination="Lb0-nI-ldw" kind="show" identifier="selectCategory" id="hCW-bo-JwR"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVM-Hk-dDh">
+                                <rect key="frame" x="324" y="519" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-fU-atc">
+                                <rect key="frame" x="20" y="524" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fdC-MC-Tiz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -423,20 +432,22 @@
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="Mka-cJ-oXX" secondAttribute="trailing" constant="20" id="6A7-qB-tia"/>
                             <constraint firstItem="Mka-cJ-oXX" firstAttribute="centerY" secondItem="Tu4-3Z-1Lx" secondAttribute="centerY" id="7lc-PX-V0k"/>
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="vLt-5F-4GF" secondAttribute="trailing" constant="20" id="98q-CC-gWe"/>
-                            <constraint firstItem="kSO-Cg-aDH" firstAttribute="top" secondItem="hLc-N9-K3h" secondAttribute="bottom" constant="50" id="9Li-w3-F16"/>
                             <constraint firstItem="H7h-vF-PwP" firstAttribute="top" secondItem="0jf-Hd-rC5" secondAttribute="bottom" constant="25" id="ALq-Lg-xHb"/>
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="Qzz-Mc-nf6" secondAttribute="trailing" constant="20" id="ANW-Zm-O89"/>
                             <constraint firstItem="zP0-nU-9JU" firstAttribute="top" secondItem="zh4-1Q-Co3" secondAttribute="bottom" constant="30" id="Ax1-O8-iQ3"/>
                             <constraint firstItem="9ry-pX-2Rb" firstAttribute="leading" secondItem="kSO-Cg-aDH" secondAttribute="trailing" constant="10" id="Bs7-mc-xPN"/>
                             <constraint firstItem="zP0-nU-9JU" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="DZL-fz-L5Z"/>
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="6xb-93-wyk" secondAttribute="trailing" constant="299" id="EmP-la-sVd"/>
+                            <constraint firstItem="MOV-fU-atc" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="Ey7-Um-9UT"/>
                             <constraint firstItem="Nh8-Zm-rh6" firstAttribute="centerY" secondItem="H7h-vF-PwP" secondAttribute="centerY" id="Ezh-a6-cvc"/>
                             <constraint firstItem="zh4-1Q-Co3" firstAttribute="top" secondItem="mWW-H9-O2R" secondAttribute="bottom" constant="20" id="FVX-Kl-C1Q"/>
                             <constraint firstItem="6xb-93-wyk" firstAttribute="top" secondItem="H7h-vF-PwP" secondAttribute="bottom" constant="25" id="HtQ-hM-nRf"/>
                             <constraint firstItem="hLc-N9-K3h" firstAttribute="top" secondItem="6xb-93-wyk" secondAttribute="bottom" constant="20" id="IlO-Eu-vMJ"/>
                             <constraint firstItem="vLt-5F-4GF" firstAttribute="centerY" secondItem="zP0-nU-9JU" secondAttribute="centerY" id="Mcf-z4-r0k"/>
+                            <constraint firstItem="9ry-pX-2Rb" firstAttribute="top" secondItem="vVM-Hk-dDh" secondAttribute="bottom" constant="30" id="MeH-wS-Jph"/>
                             <constraint firstItem="kSO-Cg-aDH" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="201" id="ODx-hw-7gL"/>
                             <constraint firstItem="mWW-H9-O2R" firstAttribute="centerX" secondItem="QRR-9w-emI" secondAttribute="centerX" id="P7q-sM-3yb"/>
+                            <constraint firstItem="MOV-fU-atc" firstAttribute="centerY" secondItem="vVM-Hk-dDh" secondAttribute="centerY" id="PdG-jS-LzN"/>
                             <constraint firstItem="Tu4-3Z-1Lx" firstAttribute="leading" secondItem="Qzz-Mc-nf6" secondAttribute="leading" id="Q4k-YF-D3T"/>
                             <constraint firstItem="KbG-9u-fFa" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="Q62-Db-YXt"/>
                             <constraint firstItem="mWW-H9-O2R" firstAttribute="top" secondItem="fdC-MC-Tiz" secondAttribute="top" constant="20" id="QXT-0e-HeN"/>
@@ -445,13 +456,14 @@
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="9ry-pX-2Rb" secondAttribute="trailing" constant="20" id="Sj5-B6-QOa"/>
                             <constraint firstItem="0jf-Hd-rC5" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="U0p-dw-iYE"/>
                             <constraint firstItem="hLc-N9-K3h" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="VXg-oO-BCW"/>
+                            <constraint firstItem="MOV-fU-atc" firstAttribute="top" secondItem="hLc-N9-K3h" secondAttribute="bottom" constant="30" id="XGC-7r-bjZ"/>
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="hLc-N9-K3h" secondAttribute="trailing" constant="20" id="XY0-yb-ZH6"/>
                             <constraint firstItem="zh4-1Q-Co3" firstAttribute="centerX" secondItem="QRR-9w-emI" secondAttribute="centerX" id="Yby-DZ-Kf0"/>
                             <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="Nh8-Zm-rh6" secondAttribute="trailing" constant="20" id="ZFO-S2-OSG"/>
                             <constraint firstItem="kSO-Cg-aDH" firstAttribute="centerY" secondItem="9ry-pX-2Rb" secondAttribute="centerY" id="cyW-be-2PL"/>
+                            <constraint firstItem="fdC-MC-Tiz" firstAttribute="trailing" secondItem="vVM-Hk-dDh" secondAttribute="trailing" constant="20" id="ecO-aI-TaP"/>
                             <constraint firstItem="Nh8-Zm-rh6" firstAttribute="leading" secondItem="H7h-vF-PwP" secondAttribute="trailing" constant="116" id="fu0-uW-4Hj"/>
                             <constraint firstItem="Tu4-3Z-1Lx" firstAttribute="centerY" secondItem="0jf-Hd-rC5" secondAttribute="centerY" id="j0E-o1-ew3"/>
-                            <constraint firstItem="9ry-pX-2Rb" firstAttribute="top" secondItem="hLc-N9-K3h" secondAttribute="bottom" constant="50" id="jIL-9r-3Zs"/>
                             <constraint firstItem="6xb-93-wyk" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="jNG-R3-oEc"/>
                             <constraint firstItem="0jf-Hd-rC5" firstAttribute="top" secondItem="KbG-9u-fFa" secondAttribute="bottom" constant="25" id="lQZ-l2-UNm"/>
                             <constraint firstItem="H7h-vF-PwP" firstAttribute="leading" secondItem="fdC-MC-Tiz" secondAttribute="leading" constant="20" id="pOL-Fm-aOG"/>
@@ -466,6 +478,7 @@
                         <outlet property="dateTextField" destination="Qzz-Mc-nf6" id="9wU-ge-iF2"/>
                         <outlet property="noteTextField" destination="Nh8-Zm-rh6" id="lpA-ut-e2A"/>
                         <outlet property="recurringSegment" destination="hLc-N9-K3h" id="XJt-42-IEl"/>
+                        <outlet property="switchButton" destination="vVM-Hk-dDh" id="es4-K3-ed6"/>
                         <outlet property="toFromTextField" destination="vLt-5F-4GF" id="CZI-Nh-DQa"/>
                         <outlet property="transactionTypeSegment" destination="mWW-H9-O2R" id="50n-3x-mE6"/>
                     </connections>
