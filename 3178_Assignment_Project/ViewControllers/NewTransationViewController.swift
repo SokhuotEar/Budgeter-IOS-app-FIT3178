@@ -9,6 +9,16 @@ import UIKit
 
 class NewTransationViewController: UIViewController, SelectCategoryProtocol{
     
+
+    
+    @IBAction func SelectCurrencyButtonAction(_ sender: Any) {
+
+        
+    }
+    
+    
+    @IBOutlet weak var CurrencyButton: UIButton!
+    
     func selectCategory(category: Category){
         categoryLabel.text = category.name
         transactionCategory = category
@@ -66,17 +76,13 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
     @IBAction func confirmButtonAction(_ sender: Any) {
         
         //initialise variable
-        var amount = amountTextField.text ?? ""
-        var toFrom = toFromTextField.text ?? ""
-        var note =  noteTextField.text ?? ""
-        var category = categoryLabel.text ?? ""
-        
-        
+        let amount = amountTextField.text ?? ""
+        let toFrom = toFromTextField.text ?? ""
+        let note =  noteTextField.text ?? ""
+        _ = categoryLabel.text ?? ""
 
-
-        
         //handling dates
-        var dateText = dateTextField.text
+        let dateText = dateTextField.text
 
         let dateFormatter = DateFormatter()
         
@@ -106,6 +112,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
             recurring = .none
         }
         
+        
         // check transactionType
         var transactionType: TransactionType
         switch transactionTypeSegment.selectedSegmentIndex{
@@ -123,6 +130,11 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
         {
             displayMessage(controller: self, title: "Error", message: "Please make sure all the fields are filled")
             return
+        }
+        
+        if date > Date()
+        {
+            displayMessage(controller: self, title: "Error", message: "Transaction cannot occur in the future.")
         }
         
         //add
@@ -172,9 +184,6 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
             destination.selectCategoryProtocol = self
         }
     }
-    
-    
-    
 
 }
 

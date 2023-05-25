@@ -15,16 +15,16 @@ class TransactionSummaryViewController: UIViewController {
         if let transaction
         {
             amountLabel.text = String(transaction.amount)
-            toLabel.text = transaction.toOrFrom
-            recurringLabel.text = transaction.recurring.stringValue
+            toLabel.text = transaction.toFrom
+            recurringLabel.text = transaction.recurring.description
             noteLabel.text = transaction.note
-            categoryLabel.text = transaction.category.name
-            transactionTypeLabel.text = transaction.transactionType.stringValue
+            categoryLabel.text = transaction.category?.name ?? ""
+            transactionTypeLabel.text = transaction.transactionType.description
             
             //handle date
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-            let dateString = dateFormatter.string(from: transaction.date)
+            let dateString = dateFormatter.string(from: transaction.date ?? Date())
             dateLabel.text = dateString
             
         }

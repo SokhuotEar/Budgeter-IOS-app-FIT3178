@@ -33,10 +33,14 @@ protocol DatabaseProtocol: AnyObject {
     func addListener(listener: DatabaseListener)
     func removeListener(listener: DatabaseListener)
     func addTransaction(transactionType: TransactionType, amount: Double, toFrom: String, currency: Currency, date: Date, category: Category, note: String, recurring: Recurring) -> Transaction
-    func deleteTransaction(transaction: Transaction, index: Int)
+    func deleteTransaction(transaction: Transaction)
     
     // team
     var allTransactions: [Transaction] {get set}
     var categories: [Category] {get set}
     var balance: Double {get}
+    func getBalance() -> Double
+    func removeCategory(category: Category)
+    
+    func addCategory(name: String, value: Double)
 }

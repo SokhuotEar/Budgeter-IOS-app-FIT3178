@@ -53,7 +53,8 @@ class HomeViewController: UIViewController {
         
         
         //display info
-        
+        balanceLabel.text = String(describing: databaseController?.getBalance())
+
         
     }
     

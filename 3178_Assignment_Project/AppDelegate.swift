@@ -21,12 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
      // Run code and handle how notifications are presented while app is running.
-     func userNotificationCenter(_ center: UNUserNotificationCenter, transaction: Transaction, willPresent
-     notification: UNNotification, withCompletionHandler completionHandler:
-                                 @escaping (UNNotificationPresentationOptions) -> Void) {
-         let transaction = databaseController?.addTransaction(transactionType: transaction.transactionType, amount: transaction.amount, toFrom: transaction.toOrFrom, currency: .AUD, date: Date(), category: transaction.category, note: transaction.note, recurring: transaction.recurring)
-         completionHandler([.banner])
-     }
     
 
     // MARK: UISceneSession Lifecycle

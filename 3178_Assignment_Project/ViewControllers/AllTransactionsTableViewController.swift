@@ -25,6 +25,7 @@ class AllTransactionsTableViewController: UITableViewController {
         {
             transactionList = databaseController.allTransactions
         }
+        
 
     }
 
@@ -44,8 +45,8 @@ class AllTransactionsTableViewController: UITableViewController {
         
         let transactionCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! AllTransactionsTableViewCell
         let transaction = transactionList[indexPath.row]
-        transactionCell.categoryLabel.text = transaction.category.name
-        transactionCell.toFromLabel.text = transaction.toOrFrom
+        transactionCell.categoryLabel.text = transaction.category?.name
+        transactionCell.toFromLabel.text = transaction.toFrom
         transactionCell.amountLabel.text = String(transaction.amount)
         return transactionCell
     }
@@ -54,7 +55,7 @@ class AllTransactionsTableViewController: UITableViewController {
                             UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let transaction = transactionList[indexPath.row]
-            databaseController?.deleteTransaction(transaction: transaction, index: indexPath.row)
+            databaseController?.deleteTransaction(transaction: transaction)
         }
         
         
@@ -63,7 +64,7 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionList = databaseController.allTransactions
         }
         
-        tableView.reloadData()
+        loadData()
     }
     
     
@@ -81,9 +82,18 @@ class AllTransactionsTableViewController: UITableViewController {
             if let selectedTransaction
             {
                 destination.transaction = selectedTransaction
-                
+        
             }
         }
+    }
+    
+    func loadData()
+    {
+        if let databaseController
+        {
+            transactionList = databaseController.allTransactions
+        }
+        tableView.reloadData()
     }
     
     

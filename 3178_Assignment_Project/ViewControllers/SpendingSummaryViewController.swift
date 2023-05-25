@@ -32,8 +32,8 @@ class SpendingSummaryViewController: UIViewController {
             // constructing data
             
             let filteredTransactions = transactionList.filter { transaction in
-                if transaction.transactionType == .expense {
-                    let transactionDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
+                if transaction.transactionType == TransactionType.expense.rawValue {
+                    let transactionDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date ?? Date())
                     
                     if let transactionDate = Calendar.current.date(from: transactionDateComponents),
                        let targetDate = Calendar.current.date(from: monthYear) {
@@ -44,12 +44,12 @@ class SpendingSummaryViewController: UIViewController {
             }
             
             for category in categoryList {
-                data.append(TransactionSummaryGraphStruct(categoryName: category.name, value: 0))
+                data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0))
             }
             
             for transaction in filteredTransactions
             {
-                data.append(.init(categoryName: transaction.category.name, value: transaction.amount))
+                data.append(.init(categoryName: transaction.category?.name ?? "", value: transaction.amount))
             }
         }
         
