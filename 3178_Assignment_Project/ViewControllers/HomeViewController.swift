@@ -7,7 +7,22 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController{
+    
+    
+    var listenerType = ListenerType.all
+    
+    func onTransactionChange(change: DatabaseChange, transactions: [Transaction]) {
+        if let balance = databaseController?.getBalance(){
+            balanceLabel.text = String(describing: balance)
+        }
+    }
+    
+    
+    
+    func databaseChanged() {
+        viewDidLoad()
+    }
     
     var databaseController: DatabaseProtocol?
     
@@ -16,15 +31,23 @@ class HomeViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
-        if let balance = databaseController?.balance
+        if let balance = databaseController?.getBalance()
         {
             balanceLabel.text = String(balance)
         }
    
         super.viewDidLoad()
         
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let balance = databaseController?.getBalance(){
+            balanceLabel.text = String(describing: balance)
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     @IBOutlet weak var incomeThisMonthLabel: UILabel!
@@ -50,8 +73,6 @@ class HomeViewController: UIViewController {
             monthLabel.text = nextMonthString
         }
         
-        
-        
         //display info
         balanceLabel.text = String(describing: databaseController?.getBalance())
 
@@ -76,7 +97,6 @@ class HomeViewController: UIViewController {
             let nextMonthString = dateFormatter.string(from: nextMonth)
             monthLabel.text = nextMonthString
         }
-        
         
         //display info
     }

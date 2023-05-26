@@ -9,13 +9,22 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
+    weak var databaseController: DatabaseProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
         
-        
-        
+    }
+    
+    @IBOutlet weak var balanceLabel: UILabel!
+    override func viewWillAppear(_ animated: Bool) {
+        if let balance = databaseController?.getBalance()
+        {
+            balanceLabel.text = String(describing: balance)
+        }
     }
     @IBOutlet weak var monthLabel: UILabel!
     

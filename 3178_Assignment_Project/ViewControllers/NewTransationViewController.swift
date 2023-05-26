@@ -7,13 +7,22 @@
 
 import UIKit
 
-class NewTransationViewController: UIViewController, SelectCategoryProtocol{
+class NewTransationViewController: UIViewController, SelectCategoryProtocol, ConvertCurrency{
+    
+    var listenerType = ListenerType.all
+    
+    func onTransactionChange(change: DatabaseChange, transactions: [Transaction]) {
+        // do nothing
+    }
+    
+    func convertCurrency(amount: Double) {
+        amountTextField.text = String(amount)
+    }
+    
     
 
     
     @IBAction func SelectCurrencyButtonAction(_ sender: Any) {
-
-        
     }
     
     
@@ -48,8 +57,6 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
-        
-    
     }
 
 
@@ -176,12 +183,18 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol{
         
         navigationController?.popViewController(animated: true)
         
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectCategory" {
             let destination = segue.destination as! SelectCategoryTableViewController
             destination.selectCategoryProtocol = self
+        }
+        if segue.identifier == "convertCurrencySegue"
+        {
+            let destination = segue.destination as! ConvertCurrencyViewController
+            destination.convertCurrencyDelegate = self
         }
     }
 
@@ -192,6 +205,11 @@ protocol SelectCategoryProtocol: AnyObject
     func selectCategory(category: Category)
 }
 
+
+protocol ConvertCurrency: AnyObject
+{
+    func convertCurrency(amount: Double)
+}
 
 
 

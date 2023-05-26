@@ -18,7 +18,16 @@ class TransactionSummaryViewController: UIViewController {
             toLabel.text = transaction.toFrom
             recurringLabel.text = transaction.recurring.description
             noteLabel.text = transaction.note
-            categoryLabel.text = transaction.category?.name ?? ""
+            
+            if transaction.category != nil
+            {
+                categoryLabel.text = transaction.category?.name
+            }
+            else
+            {
+                categoryLabel.text = transaction.category?.name
+            }
+            
             transactionTypeLabel.text = transaction.transactionType.description
             
             //handle date

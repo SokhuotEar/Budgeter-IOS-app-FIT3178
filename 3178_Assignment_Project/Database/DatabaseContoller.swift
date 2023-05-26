@@ -10,10 +10,9 @@ import CoreData
 
 class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate
 {
-
-
     
-
+    
+    var listeners = MulticastDelegate<DatabaseListener>()
 
     var balance: Double = 0
     
@@ -22,6 +21,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var allCategoriesFetchedResultsController: NSFetchedResultsController<Category>?
     var persistentContainer: NSPersistentContainer
     var categories: [Category] = []
+    let BALANCE_USER_DEFAULT_KEY = "Balance"
     
     
     override init() {
@@ -43,8 +43,19 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         allTransactions = fetchAllTransactions()
         
         
+        
         // create user default for balance
-        UserDefaults.standard.set(balance, forKey: "Balance")
+
+        if UserDefaults.standard.object(forKey: BALANCE_USER_DEFAULT_KEY) != nil {
+            // User default exists
+            balance = getBalance()
+        } else {
+            // User default does not exist
+            UserDefaults.standard.set(balance, forKey: BALANCE_USER_DEFAULT_KEY)
+        }
+        
+            
+        
     }
     
     func addTransaction(transactionType: TransactionType, amount: Double, toFrom: String, currency: Currency, date: Date, category: Category, note: String, recurring: Recurring) -> Transaction {
@@ -57,14 +68,27 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         let transaction = NSEntityDescription.insertNewObject(forEntityName: "Transaction", into: persistentContainer.viewContext) as! Transaction
         
         transaction.transactionType = transactionType.rawValue
-        transaction.amount = amount
         transaction.toFrom = toFrom
         transaction.date = date
         transaction.category = category
         transaction.note = note
         transaction.recurring = recurring.rawValue
         transaction.id = UUID().uuidString
+        
+        // set amount base on transaction type
+        if transactionType == .income
+        {
+            transaction.amount = amount
+        }
+        else if transactionType == .expense
+        {
+            transaction.amount = -amount
+        }
+        
+        // update balance
+        let _ = setBalance(value: getBalance() + transaction.amount)
     
+        // clean up
         allTransactions = fetchAllTransactions()
         cleanup()
         
@@ -81,13 +105,13 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         categories = fetchAllCategories()
         cleanup()
         
+        
     }
     
     
     func addDefaultCategory()
     {
-        addCategory(name: "Food", value: 0)
-        addCategory(name: "Gym", value: 0)
+        addCategory(name: "Other", value: 0)
     }
     
     func fetchAllTransactions() -> [Transaction] {
@@ -150,6 +174,10 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     func deleteTransaction(transaction: Transaction) {
+        // edit balance
+        let _ = setBalance(value: getBalance() - transaction.amount)
+        
+        
         persistentContainer.viewContext.delete(transaction)
         cleanup()
         allTransactions = fetchAllTransactions()
@@ -166,12 +194,13 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     func addListener(listener: DatabaseListener) {
-        //none
+        listeners.addDelegate(listener)
+        if listener.listenerType == .all {
+            listener.onTransactionChange(change: .update, transactions: [])
+        }
+    
     }
     
-    func removeListener(listener: DatabaseListener) {
-        //none
-    }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         categories = fetchAllCategories()
@@ -185,10 +214,27 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     
     func removeCategory(category: Category) {
         persistentContainer.viewContext.delete(category)
+        
         cleanup()
         categories = fetchAllCategories()
     }
     
+    func setBalance(value: Double) -> Double
+    {
+        var updatedValue = UserDefaults.standard.double(forKey: BALANCE_USER_DEFAULT_KEY)
+        updatedValue = value
+        
+        // Save the updated value
+        UserDefaults.standard.set(updatedValue, forKey: BALANCE_USER_DEFAULT_KEY)
+        UserDefaults.standard.synchronize() // Optional - Forces immediate save
+        
+        print(UserDefaults.standard.double(forKey: BALANCE_USER_DEFAULT_KEY))
+        return  UserDefaults.standard.double(forKey: BALANCE_USER_DEFAULT_KEY)
+    }
+    
+    func removeListener(listener: DatabaseListener) {
+        listeners.removeDelegate(listener)
+    }
     
     
     

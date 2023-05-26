@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "22DBEEE4-79E1-4AE2-8E85-A5D99F5D75C3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "NewTransationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - af9615c1ecca4075"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.toFromTextField.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - 2b73c98d9f4c1489"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.toFromTextField.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - 88ce0a438cad5e85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.toFromTextField.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - 1243cd39709523c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.toFromTextField.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - 3f94de223db1b7f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; _178_Assignment_Project.NewTransationViewController"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "286">
+               </Location>
+               <Location
+                  uuid = "F94B9714-9DB4-4936-820D-AC4185AB59A3 - 408c87748d533cb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;_178_Assignment_Project.NewTransationViewController&gt;"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "243">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91E2BC89-4A89-440D-904A-7B68325ADDD1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/databaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "addTransaction(transactionType:amount:toFrom:currency:date:category:note:recurring:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C1BD347-DCA1-4FFE-883B-EC3BDCCE518C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/AllTransactionsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDD81CB6-8DBA-4E63-AE0F-4411CCA764F5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92BBE27A-12E7-4088-B5DE-BBCBDDE4C8D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9627B30A-133C-4853-8D2D-786D7C040797"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/SelectCategoryCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7837791C-943D-4FE5-9E18-832BE002F1EB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/SelectCategoryCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F121E7A5-F362-4FE5-9563-58C676CE1CC0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "selectCategory(category:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5447B0D8-CB94-4CDA-82D5-5C0FA5279880"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2B95C90-572E-4FBB-A8C7-28D34BEAA02F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/OverviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B916847-41CD-4387-8F98-964373026376"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/OverviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CC54B33-A697-4C4B-930C-FFA81EB7017C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/databaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B80818AE-6EFC-4117-9079-3295E31A1845"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/AllTransactionsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82A79EE5-A16B-4639-9F75-AE17507C249E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/CreateNewCategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "CreateCategoryAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82A79EE5-A16B-4639-9F75-AE17507C249E - bcf65a88682f64af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.CreateNewCategoryViewController.CreateCategoryAction(Any) -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/CreateNewCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1983">
+               </Location>
+               <Location
+                  uuid = "82A79EE5-A16B-4639-9F75-AE17507C249E - bcf65a88682f64af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.CreateNewCategoryViewController.CreateCategoryAction(Any) -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/CreateNewCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "2032">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2578F852-A9CC-4155-A57C-D764E9942981"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/ManageBudgetTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2578F852-A9CC-4155-A57C-D764E9942981 - 4334bfb28a96f92e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.ManageBudgetTableViewController.loadData() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/ManageBudgetTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "2578F852-A9CC-4155-A57C-D764E9942981 - 4334bfb28a96f92e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.ManageBudgetTableViewController.loadData() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/ManageBudgetTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECBE18C0-3E2A-4358-A4B2-06D9C996BDEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/DatabaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "getBalance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F6669C1-CDF2-4BAE-9105-CFF5C1C26323"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/DatabaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "setBalance(value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AB6EBEA-665E-44C5-BA9E-83D754A7DF54"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/DatabaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "setBalance(value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2832D723-7918-4A39-AD08-D05175DF191A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2832D723-7918-4A39-AD08-D05175DF191A - 56e92703ea1ebc99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.NewTransationViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "573">
+               </Location>
+               <Location
+                  uuid = "2832D723-7918-4A39-AD08-D05175DF191A - 2d9a3ffd2b15d840"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIAction) -&gt; () in _178_Assignment_Project.NewTransationViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/NewTransationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "161">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D67541A-168E-4226-8A66-A30A2FF24712"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D67541A-168E-4226-8A66-A30A2FF24712 - 2e07857de2bc51e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "438">
+               </Location>
+               <Location
+                  uuid = "8D67541A-168E-4226-8A66-A30A2FF24712 - 2e07857de2bc51e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "640">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E44D243-CF4A-403D-91B2-B4696EDCB1AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/DatabaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "addListener(listener:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F9C735B-44EA-412E-95D3-7712F5804CF6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F9C735B-44EA-412E-95D3-7712F5804CF6 - 3ea8f129c5282574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.HomeViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "162">
+               </Location>
+               <Location
+                  uuid = "7F9C735B-44EA-412E-95D3-7712F5804CF6 - 3ea8f129c5282574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_178_Assignment_Project.HomeViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "3178_Assignment_Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sokhuotear/Desktop/FIT3178/3178_Assignment_Project/3178_Assignment_Project/ViewControllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "346">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BE16308-63BC-4ADA-BBAD-3168DB6D8C2E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/Database/DatabaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "setBalance(value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9153A72-806A-47B5-86EC-08298F375653"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/AllTransactionsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "321F72CB-71DB-483E-BE97-9A7047367FC0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "3178_Assignment_Project/ViewControllers/OverviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

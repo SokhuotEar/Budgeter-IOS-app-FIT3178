@@ -55,3 +55,14 @@ extension Transaction{
         }
     }
 }
+
+extension Transaction{
+    var categoryAttribute: Category?{
+        get{
+            return self.category
+        }
+        set{
+            self.category = category
+        }
+    }
+}

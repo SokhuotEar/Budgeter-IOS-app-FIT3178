@@ -45,7 +45,17 @@ class AllTransactionsTableViewController: UITableViewController {
         
         let transactionCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! AllTransactionsTableViewCell
         let transaction = transactionList[indexPath.row]
-        transactionCell.categoryLabel.text = transaction.category?.name
+        
+        if transaction.category != nil
+        {
+            transactionCell.categoryLabel.text = transaction.category?.name
+        }
+        else
+        {
+            transactionCell.categoryLabel.text = "Other"
+        }
+        
+        
         transactionCell.toFromLabel.text = transaction.toFrom
         transactionCell.amountLabel.text = String(transaction.amount)
         return transactionCell

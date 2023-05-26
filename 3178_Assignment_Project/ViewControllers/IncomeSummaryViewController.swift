@@ -46,10 +46,11 @@ class IncomeSummaryViewController: UIViewController {
             for category in categoryList {
                 data.append(TransactionSummaryGraphStruct(categoryName: category.name!, value: 0))
             }
+            data.append(TransactionSummaryGraphStruct(categoryName: "Other", value: 0))
             
             for transaction in filteredTransactions
             {
-                data.append(.init(categoryName: transaction.category?.name ?? "", value: transaction.amount))
+                data.append(.init(categoryName: transaction.category?.name ?? "Other", value: transaction.amount))
             }
         }
         
