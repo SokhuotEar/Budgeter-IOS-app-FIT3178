@@ -97,7 +97,6 @@ class HomeViewController: UIViewController{
             let nextMonthString = dateFormatter.string(from: nextMonth)
             monthLabel.text = nextMonthString
         }
-        
         //display info
     }
     

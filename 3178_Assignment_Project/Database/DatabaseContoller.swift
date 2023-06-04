@@ -10,6 +10,7 @@ import CoreData
 
 class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate
 {
+
     
     
     var listeners = MulticastDelegate<DatabaseListener>()
@@ -19,8 +20,10 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var allTransactions: [Transaction] = []
     var allTransactionsFetchedResultsController: NSFetchedResultsController<Transaction>?
     var allCategoriesFetchedResultsController: NSFetchedResultsController<Category>?
+    var allLendingsFetchedResultsController: NSFetchedResultsController<Lending>?
     var persistentContainer: NSPersistentContainer
     var categories: [Category] = []
+    var allLendings: [Lending] = []
     let BALANCE_USER_DEFAULT_KEY = "Balance"
     
     
@@ -41,6 +44,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
         categories = fetchAllCategories()
         allTransactions = fetchAllTransactions()
+        allLendings = fetchAllLending()
         
         
         
@@ -108,10 +112,64 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
     }
     
+    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String) {
+        let lending = NSEntityDescription.insertNewObject(forEntityName: "Lending", into: persistentContainer.viewContext) as! Lending
+        
+        lending.dueDate = dueDate
+        lending.amount = -amount
+        lending.date = date
+        lending.note = note
+        lending.to = to
+        lending.repayments = []
+        
+        allLendings = fetchAllLending()
+        cleanup()
+        
+        
+        // create new transaction to reflect the lending
+        if let category = getCategory(name: "Default: Lending Out")
+        {
+            _ = addTransaction(transactionType: .lending, amount: lending.amount, toFrom: to, currency: .AUD, date: lending.date ?? Date(), category: category, note: note, recurring: .none)
+        }
+        
+        
+    }
+    
+    func fetchAllLending() -> [Lending]
+    {
+        if allLendingsFetchedResultsController == nil {
+            let request: NSFetchRequest<Lending> = Lending.fetchRequest()
+            let nameSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+            request.sortDescriptors = [nameSortDescriptor]
+            
+            // Initialise Fetched Results Controller
+            allLendingsFetchedResultsController =
+            NSFetchedResultsController<Lending>(fetchRequest: request,
+                                                  managedObjectContext: persistentContainer.viewContext,
+                                                  sectionNameKeyPath: nil, cacheName: nil)
+            // Set this class to be the results delegate
+            allLendingsFetchedResultsController?.delegate = self
+            
+            do {
+                try allLendingsFetchedResultsController?.performFetch()
+            } catch {
+                print("Fetch Request Failed: \(error)")
+            }
+            
+        }
+        if let lendings = allLendingsFetchedResultsController?.fetchedObjects {
+            return lendings
+        }
+        return [Lending]()
+    }
+    
+
+    
     
     func addDefaultCategory()
     {
-        addCategory(name: "Other", value: 0)
+        addCategory(name: "Default: Other", value: 0)
+        addCategory(name: "Default: Lending Out", value: 0)
     }
     
     func fetchAllTransactions() -> [Transaction] {
@@ -235,6 +293,19 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     func removeListener(listener: DatabaseListener) {
         listeners.removeDelegate(listener)
     }
+    
+    func getCategory(name: String) -> Category?
+    {
+        for category in categories{
+            if category.name == name
+            {
+                return category
+            }
+        }
+        return nil
+    }
+    
+
     
     
     

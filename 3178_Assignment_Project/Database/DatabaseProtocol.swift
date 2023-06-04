@@ -36,9 +36,11 @@ protocol DatabaseProtocol: AnyObject {
     // team
     var allTransactions: [Transaction] {get set}
     var categories: [Category] {get set}
+    var allLendings: [Lending] {get set}
     var balance: Double {get}
     func getBalance() -> Double
     func removeCategory(category: Category)
     
     func addCategory(name: String, value: Double)
+    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String)
 }

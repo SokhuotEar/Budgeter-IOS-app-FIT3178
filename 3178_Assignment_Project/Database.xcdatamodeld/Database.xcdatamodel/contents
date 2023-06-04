@@ -12,7 +12,7 @@
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="to" optional="YES" attributeType="String"/>
-        <relationship name="repayments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="lending" inverseEntity="Transaction"/>
+        <relationship name="repayments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="lending" inverseEntity="Transaction"/>
     </entity>
     <entity name="Random" representedClassName="Random" syncable="YES" codeGenerationType="class"/>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
