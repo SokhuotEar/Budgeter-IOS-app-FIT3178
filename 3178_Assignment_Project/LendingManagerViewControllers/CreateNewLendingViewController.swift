@@ -82,6 +82,16 @@ class CreateNewLendingViewController: UIViewController {
                 return
             }
             
+            if dueDateDate < Date()
+            {
+                displayMessage(controller: self, title: "Due Date Error", message: "Due date must be in the future")
+                return
+            }
+            
+            
+
+            
+            
             // create a new lending
             databaseController?.createNewLending(amount: amount_double, date: Date(), dueDate: dueDateDate, note: note, to: to)
             

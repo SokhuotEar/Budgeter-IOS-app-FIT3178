@@ -1,25 +1,18 @@
 //
-//  AllLendingHistoryTableViewController.swift
+//  PaidLendingsTableViewController.swift
 //  3178_Assignment_Project
 //
-//  Created by Sokhuot Ear on 28/5/2023.
+//  Created by Sokhuot Ear on 6/6/2023.
 //
 
 import UIKit
 
-class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidProtocol{
-    
-    func markAsPaidButtonPressed() {
-        print("called")
-        loadData()
-    }
-    
-    
+class PaidLendingsTableViewController: UITableViewController {
 
-    var allLendings = [Lending]()
+
+    var allPaidLendings = [Lending]()
     var databaseController: DatabaseProtocol?
-    let CELL_ID = "allLendingsHistoryCell"
-    var selectedLending: Lending?
+    let CELL_ID = "allPaidLendingsCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +20,6 @@ class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidPro
         tableView.separatorStyle = .singleLine
 
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
@@ -46,14 +38,14 @@ class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidPro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allLendings.count
+        return allPaidLendings.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let lendingCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! AllLendingHistoryTableViewCell
-        let lending = allLendings[indexPath.row]
+        let lendingCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! PaidLendingsTableViewCell
+        let lending = allPaidLendings[indexPath.row]
         
         if indexPath.row.isMultiple(of: 2)
         {
@@ -78,33 +70,40 @@ class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidPro
         
         lendingCell.dateLabel.text = String(describing: dateFormatter.string(from: lending.date ?? Date()))
         lendingCell.toLabel.text = lending.to
-        lendingCell.markAsPaid = self
-        lendingCell.lending = lending
+        lendingCell.paidByLabel.text = String(describing: dateFormatter.string(from: lending.paidBy ?? Date()))
         
         
         return lendingCell
     }
     
     
-    
 
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+        return 220
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle:
+                            UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            databaseController?.removeLending(lending: allPaidLendings[indexPath.row])
+            loadData()
+        }
+    }
+
     
     func loadData()
     {
         if let databaseController
         {
-            allLendings = []
+            allPaidLendings = []
             let allLendingsData = databaseController.allLendings
             
             for lending in allLendingsData {
-                if lending.paid == false
+                if lending.paid == true
                 {
-                    allLendings.append(lending)
+                    allPaidLendings.append(lending)
                 }
             }
         }
@@ -113,9 +112,5 @@ class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidPro
     
     
     
-}
 
-protocol MarkAsPaidProtocol: AnyObject
-{
-    func markAsPaidButtonPressed()
 }

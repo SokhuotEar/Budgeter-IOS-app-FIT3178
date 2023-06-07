@@ -43,4 +43,7 @@ protocol DatabaseProtocol: AnyObject {
     
     func addCategory(name: String, value: Double)
     func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String)
+    func markLendingAsPaid(lending: Lending)
+    func removeLending(lending: Lending)
+    func changeBudgetValueFor(category: Category, newValue: Double)
 }

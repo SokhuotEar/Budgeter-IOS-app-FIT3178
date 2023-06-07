@@ -28,7 +28,17 @@ class TransactionSummaryViewController: UIViewController {
                 categoryLabel.text = transaction.category?.name
             }
             
-            transactionTypeLabel.text = transaction.transactionType.description
+            transactionTypeLabel.text = TransactionType(rawValue: transaction.transactionType)?.stringValue
+            
+            if TransactionType(rawValue: transaction.transactionType) == .income
+            {
+                amountLabel.textColor = UIColor.systemGreen
+            }
+            else
+            {
+                amountLabel.textColor = UIColor.systemRed
+            }
+            
             
             //handle date
             let dateFormatter = DateFormatter()

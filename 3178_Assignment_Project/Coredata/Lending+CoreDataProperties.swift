@@ -2,7 +2,7 @@
 //  Lending+CoreDataProperties.swift
 //  3178_Assignment_Project
 //
-//  Created by Sokhuot Ear on 4/6/2023.
+//  Created by Sokhuot Ear on 6/6/2023.
 //
 //
 
@@ -17,10 +17,13 @@ extension Lending {
     }
 
     @NSManaged public var amount: Double
+    @NSManaged public var paidBy: Date?
     @NSManaged public var date: Date?
     @NSManaged public var dueDate: Date?
     @NSManaged public var note: String?
     @NSManaged public var to: String?
+    @NSManaged public var id: String?
+    @NSManaged public var paid: Bool
     @NSManaged public var repayments: NSSet?
 
 }

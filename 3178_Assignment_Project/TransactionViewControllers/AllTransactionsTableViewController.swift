@@ -35,6 +35,11 @@ class AllTransactionsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Date --  To or From -- Amount"
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -55,9 +60,18 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionCell.categoryLabel.text = "Other"
         }
         
+        if TransactionType(rawValue: transaction.transactionType) == .income
+        {
+            transactionCell.amountLabel.textColor = UIColor.systemGreen
+        }
+        else
+        {
+            transactionCell.amountLabel.textColor = UIColor.red
+        }
+        
         
         transactionCell.toFromLabel.text = transaction.toFrom
-        transactionCell.amountLabel.text = String(transaction.amount)
+        transactionCell.amountLabel.text = String(describing: transaction.amount)
         return transactionCell
     }
     

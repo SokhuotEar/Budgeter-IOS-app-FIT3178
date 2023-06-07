@@ -23,7 +23,16 @@ class SelectCategoryTableViewController: UITableViewController{
         
         if let databaseController
         {
-            categoryList = databaseController.categories
+            categoryList = []
+            let categoryListData = databaseController.categories
+            
+            for category in categoryListData
+            {
+                if category.name != DEFAULT_LENDING && category.name != DEFAULT_REPAYMENT
+                {
+                    categoryList.append(category)
+                }
+            }
         }
         
         super.viewDidLoad()

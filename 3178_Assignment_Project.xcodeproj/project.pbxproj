@@ -12,9 +12,10 @@
 		E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */; };
 		E31C22DC2A16494000D7526F /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C22DB2A16494000D7526F /* LocalNotification.swift */; };
 		E33EDC002A2C6F2E005396E0 /* AllLendingHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33EDBFF2A2C6F2D005396E0 /* AllLendingHistoryTableViewCell.swift */; };
-		E33EDC032A2C77FB005396E0 /* Lending+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33EDC012A2C77FB005396E0 /* Lending+CoreDataClass.swift */; };
-		E33EDC042A2C77FB005396E0 /* Lending+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33EDC022A2C77FB005396E0 /* Lending+CoreDataProperties.swift */; };
-		E33EDC082A2C7E16005396E0 /* ManageLendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33EDC072A2C7E16005396E0 /* ManageLendingViewController.swift */; };
+		E36730BC2A2EF601007FDD18 /* Lending+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36730BA2A2EF601007FDD18 /* Lending+CoreDataClass.swift */; };
+		E36730BD2A2EF601007FDD18 /* Lending+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36730BB2A2EF601007FDD18 /* Lending+CoreDataProperties.swift */; };
+		E36730BF2A2F0073007FDD18 /* PaidLendingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36730BE2A2F0073007FDD18 /* PaidLendingsTableViewController.swift */; };
+		E36730C12A2F0420007FDD18 /* PaidLendingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36730C02A2F0420007FDD18 /* PaidLendingsTableViewCell.swift */; };
 		E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA4F29FB628F0003D11F /* AppDelegate.swift */; };
 		E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5129FB628F0003D11F /* SceneDelegate.swift */; };
 		E376AA5429FB628F0003D11F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376AA5329FB628F0003D11F /* HomeViewController.swift */; };
@@ -44,6 +45,7 @@
 		E3D2EA322A03C6310026B093 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA312A03C6310026B093 /* API.swift */; };
 		E3D2EA352A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */; };
 		E3DE53AF2A04AC510024C3FC /* TransactionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE53AE2A04AC510024C3FC /* TransactionSummaryViewController.swift */; };
+		E3FD1E162A3066CC00ACB29B /* CashFlowOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD1E152A3066CC00ACB29B /* CashFlowOverviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,9 +67,10 @@
 		E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSummaryViewController.swift; sourceTree = "<group>"; };
 		E31C22DB2A16494000D7526F /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		E33EDBFF2A2C6F2D005396E0 /* AllLendingHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLendingHistoryTableViewCell.swift; sourceTree = "<group>"; };
-		E33EDC012A2C77FB005396E0 /* Lending+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lending+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E33EDC022A2C77FB005396E0 /* Lending+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lending+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E33EDC072A2C7E16005396E0 /* ManageLendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageLendingViewController.swift; sourceTree = "<group>"; };
+		E36730BA2A2EF601007FDD18 /* Lending+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lending+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E36730BB2A2EF601007FDD18 /* Lending+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lending+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E36730BE2A2F0073007FDD18 /* PaidLendingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidLendingsTableViewController.swift; sourceTree = "<group>"; };
+		E36730C02A2F0420007FDD18 /* PaidLendingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidLendingsTableViewCell.swift; sourceTree = "<group>"; };
 		E376AA4C29FB628F0003D11F /* 3178_Assignment_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3178_Assignment_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E376AA4F29FB628F0003D11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E376AA5129FB628F0003D11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		E3D2EA312A03C6310026B093 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E3D2EA342A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		E3DE53AE2A04AC510024C3FC /* TransactionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSummaryViewController.swift; sourceTree = "<group>"; };
+		E3FD1E152A3066CC00ACB29B /* CashFlowOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowOverviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +163,8 @@
 				E37716212A23216F003D4DC0 /* CreateNewLendingViewController.swift */,
 				E37716232A23225A003D4DC0 /* AllLendingHistoryTableViewController.swift */,
 				E33EDBFF2A2C6F2D005396E0 /* AllLendingHistoryTableViewCell.swift */,
-				E33EDC072A2C7E16005396E0 /* ManageLendingViewController.swift */,
+				E36730BE2A2F0073007FDD18 /* PaidLendingsTableViewController.swift */,
+				E36730C02A2F0420007FDD18 /* PaidLendingsTableViewCell.swift */,
 			);
 			path = LendingManagerViewControllers;
 			sourceTree = "<group>";
@@ -175,8 +180,8 @@
 		E397ABC52A1F25CB0081D44A /* Coredata */ = {
 			isa = PBXGroup;
 			children = (
-				E33EDC012A2C77FB005396E0 /* Lending+CoreDataClass.swift */,
-				E33EDC022A2C77FB005396E0 /* Lending+CoreDataProperties.swift */,
+				E36730BB2A2EF601007FDD18 /* Lending+CoreDataProperties.swift */,
+				E36730BA2A2EF601007FDD18 /* Lending+CoreDataClass.swift */,
 				E397ABBB2A1F25C70081D44A /* Transaction+CoreDataClass.swift */,
 				E397ABBD2A1F25C70081D44A /* Category+CoreDataClass.swift */,
 				E397ABBE2A1F25C70081D44A /* Category+CoreDataProperties.swift */,
@@ -211,6 +216,7 @@
 				E397ABC62A1F3C1D0081D44A /* ManageBudgetTableViewController.swift */,
 				E397ABC92A1F86790081D44A /* CreateNewCategoryViewController.swift */,
 				E377161A2A204A9C003D4DC0 /* ConvertCurrencyViewController.swift */,
+				E3FD1E152A3066CC00ACB29B /* CashFlowOverviewViewController.swift */,
 			);
 			path = TransactionViewControllers;
 			sourceTree = "<group>";
@@ -287,12 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36730BD2A2EF601007FDD18 /* Lending+CoreDataProperties.swift in Sources */,
 				E37EDC3D2A0A269100DF0EF9 /* graphStructure.swift in Sources */,
 				E37EDC352A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift in Sources */,
 				E376AA8929FB7E4D0003D11F /* NewTransationViewController.swift in Sources */,
 				E377161D2A20FC9C003D4DC0 /* DatabaseContoller.swift in Sources */,
 				E397ABC32A1F25C70081D44A /* Category+CoreDataClass.swift in Sources */,
 				E397ABC12A1F25C70081D44A /* Transaction+CoreDataClass.swift in Sources */,
+				E36730BF2A2F0073007FDD18 /* PaidLendingsTableViewController.swift in Sources */,
 				E397ABC22A1F25C70081D44A /* Transaction+CoreDataProperties.swift in Sources */,
 				E3D2EA262A024F270026B093 /* Database.xcdatamodeld in Sources */,
 				E3DE53AF2A04AC510024C3FC /* TransactionSummaryViewController.swift in Sources */,
@@ -307,17 +315,17 @@
 				E3D2EA212A02498D0026B093 /* globalFunction.swift in Sources */,
 				E31C22DC2A16494000D7526F /* LocalNotification.swift in Sources */,
 				E3D2EA2B2A03659C0026B093 /* MulticastDelegate.swift in Sources */,
+				E36730C12A2F0420007FDD18 /* PaidLendingsTableViewCell.swift in Sources */,
 				E397ABCA2A1F86790081D44A /* CreateNewCategoryViewController.swift in Sources */,
-				E33EDC082A2C7E16005396E0 /* ManageLendingViewController.swift in Sources */,
 				E3D2EA322A03C6310026B093 /* API.swift in Sources */,
 				E376AA5229FB628F0003D11F /* SceneDelegate.swift in Sources */,
 				E37716242A23225A003D4DC0 /* AllLendingHistoryTableViewController.swift in Sources */,
 				E37716222A23216F003D4DC0 /* CreateNewLendingViewController.swift in Sources */,
+				E36730BC2A2EF601007FDD18 /* Lending+CoreDataClass.swift in Sources */,
 				E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */,
 				E3D2EA352A03CC8B0026B093 /* SelectCategoryCollectionViewController.swift in Sources */,
-				E33EDC032A2C77FB005396E0 /* Lending+CoreDataClass.swift in Sources */,
-				E33EDC042A2C77FB005396E0 /* Lending+CoreDataProperties.swift in Sources */,
 				E37716202A231FB1003D4DC0 /* LendingManagerViewController.swift in Sources */,
+				E3FD1E162A3066CC00ACB29B /* CashFlowOverviewViewController.swift in Sources */,
 				E3D2EA2D2A036F480026B093 /* AllTransactionsTableViewController.swift in Sources */,
 				E3D2EA302A03A64A0026B093 /* AllTransactionsTableViewCell.swift in Sources */,
 				E3D2EA292A0365720026B093 /* DatabaseProtocol.swift in Sources */,

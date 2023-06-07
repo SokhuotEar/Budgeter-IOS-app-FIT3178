@@ -10,7 +10,24 @@ import CoreData
 
 class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate
 {
+    func changeBudgetValueFor(category: Category, newValue: Double) {
+        category.value = newValue
+        
+        cleanup()
+    }
+    
+    func markLendingAsPaid(lending: Lending) {
+        lending.paid = true
+        lending.paidBy = Date()
 
+        cleanup()
+        
+        // create a new transaction to reflect this
+        if let category = getCategory(name: "Default: Lending Repayment")
+        {
+            let _ = addTransaction(transactionType: .income, amount: abs(lending.amount), toFrom: lending.to ?? "", currency: .AUD, date: Date(), category: category, note: lending.note ?? "", recurring: .none)
+        }
+    }
     
     
     var listeners = MulticastDelegate<DatabaseListener>()
@@ -88,6 +105,10 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         {
             transaction.amount = -amount
         }
+        else
+        {
+            transaction.amount = amount
+        }
         
         // update balance
         let _ = setBalance(value: getBalance() + transaction.amount)
@@ -106,6 +127,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         category.name = name
         category.value = value
         
+        
         categories = fetchAllCategories()
         cleanup()
         
@@ -121,17 +143,28 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         lending.note = note
         lending.to = to
         lending.repayments = []
+        lending.id = UUID().uuidString
+        lending.paid = false
         
         allLendings = fetchAllLending()
         cleanup()
         
-        
+        print(lending.amount)
         // create new transaction to reflect the lending
-        if let category = getCategory(name: "Default: Lending Out")
+        if let category = getCategory(name: DEFAULT_LENDING)
         {
-            _ = addTransaction(transactionType: .lending, amount: lending.amount, toFrom: to, currency: .AUD, date: lending.date ?? Date(), category: category, note: note, recurring: .none)
+            print(lending.amount)
+            let transaction = addTransaction(transactionType: .lending, amount: -amount, toFrom: to, currency: .AUD, date: lending.date ?? Date(), category: category, note: note, recurring: .none)
+            
+            // set local notification
+            // set up local notification for the due date
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: lending.dueDate ?? Date())
         }
         
+
+        
+
         
     }
     
@@ -139,7 +172,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     {
         if allLendingsFetchedResultsController == nil {
             let request: NSFetchRequest<Lending> = Lending.fetchRequest()
-            let nameSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+            let nameSortDescriptor = NSSortDescriptor(key: "id", ascending: true)
             request.sortDescriptors = [nameSortDescriptor]
             
             // Initialise Fetched Results Controller
@@ -168,8 +201,9 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     
     func addDefaultCategory()
     {
-        addCategory(name: "Default: Other", value: 0)
-        addCategory(name: "Default: Lending Out", value: 0)
+        addCategory(name: DEFAULT_OTHER, value: 0)
+        addCategory(name: DEFAULT_LENDING, value: 0)
+        addCategory(name: DEFAULT_REPAYMENT, value: 0)
     }
     
     func fetchAllTransactions() -> [Transaction] {
@@ -273,8 +307,32 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     func removeCategory(category: Category) {
         persistentContainer.viewContext.delete(category)
         
+        if let categoryTransactions = category.transaction?.allObjects as? [Transaction] {
+            for transaction in categoryTransactions {
+                if let category = getCategory(name: "Default: Other")
+                {
+                    transaction.category = category
+                }
+            }
+        }
+        
+        else
+        {
+            print("error when trying to delete a category")
+        }
+        
         cleanup()
         categories = fetchAllCategories()
+    }
+    
+    func removeLending(lending: Lending) {
+        persistentContainer.viewContext.delete(lending)
+        
+    
+
+        
+        cleanup()
+        allLendings = fetchAllLending()
     }
     
     func setBalance(value: Double) -> Double

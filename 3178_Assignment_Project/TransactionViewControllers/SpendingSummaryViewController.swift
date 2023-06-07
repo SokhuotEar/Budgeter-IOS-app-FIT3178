@@ -46,22 +46,23 @@ class SpendingSummaryViewController: UIViewController {
             }
             
             for category in categoryList {
-                data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0))
+                data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0, budget: category.value))
             }
-            data.append(TransactionSummaryGraphStruct(categoryName: "Other", value: 0))
             
+            // append transaction amount (y values)
             for transaction in filteredTransactions
             {
-                data.append(.init(categoryName: transaction.category?.name ?? "Other", value: transaction.amount))
+                if let categoryName = transaction.category?.name,
+                   let index = data.firstIndex(where: { $0.categoryName == categoryName }) {
+                    data[index].value += transaction.amount
+                }
             }
         }
-        
-        
         
         super.viewDidLoad()
         
         //graphing
-        let controller = UIHostingController(rootView: ChartUIView(data: data))
+        let controller = UIHostingController(rootView: ChartUIView(data: data, title: ""))
         guard let chartView = controller.view else {
             return
         }

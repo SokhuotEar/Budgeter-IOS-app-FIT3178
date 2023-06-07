@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ManageBudgetTableViewController: UITableViewController {
     // attributes
@@ -61,12 +62,20 @@ class ManageBudgetTableViewController: UITableViewController {
         
         if editingStyle == .delete {
             let category = categoryList[indexPath.row]
+            
+            if category.name == DEFAULT_OTHER || category.name == DEFAULT_LENDING || category.name == DEFAULT_REPAYMENT
+
+            {
+                displayMessage(controller: self, title: "Error", message: "Cannot delete default categories")
+                return
+            }
+            
             databaseController?.removeCategory(category: category)
             loadData()
         }
 
     }
-    
+
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Update Monthly budget", message: nil, preferredStyle: .alert)
@@ -75,11 +84,22 @@ class ManageBudgetTableViewController: UITableViewController {
             textField.placeholder = "Enter value"
         }
         
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { action in
-            if let value = alert.textFields?.first?.text {
+            if let valueText = alert.textFields?.first?.text {
                 // Process the entered value
-                print("Entered value: \(value)")
+        
+                guard let value = Double(valueText) else
+                {
+                    displayMessage(controller: self, title: "Error", message: "Please enter an appropriate amount")
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    return
+                }
+                
+                self.databaseController?.changeBudgetValueFor(category: self.categoryList[indexPath.row], newValue: value)
+                
+                self.loadData()
             }
         }
         

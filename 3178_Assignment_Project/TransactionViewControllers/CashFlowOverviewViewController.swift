@@ -1,17 +1,16 @@
 //
-//  IncomeSummaryViewController.swift
+//  CashFlowOverviewViewController.swift
 //  3178_Assignment_Project
 //
-//  Created by Sokhuot Ear on 9/5/2023.
+//  Created by Sokhuot Ear on 7/6/2023.
 //
 
 import UIKit
-import Charts
 import SwiftUI
 
+class CashFlowOverviewViewController: UIViewController {
 
-class IncomeSummaryViewController: UIViewController {
-    var chartController: UIHostingController<ChartUIView>?
+    var chartController: UIHostingController<BudgetChartUIView>?
     var transactionList: [Transaction]?
     var categoryList: [Category]?
     var databaseController: DatabaseProtocol?
@@ -30,23 +29,24 @@ class IncomeSummaryViewController: UIViewController {
         var data: [TransactionSummaryGraphStruct] = []
         if let transactionList, let categoryList{
             // constructing data
-            
             let filteredTransactions = transactionList.filter { transaction in
-                if transaction.transactionType == TransactionType.income.rawValue {
                     let transactionDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date!)
                     
                     if let transactionDate = Calendar.current.date(from: transactionDateComponents),
                        let targetDate = Calendar.current.date(from: monthYear) {
                         return Calendar.current.compare(transactionDate, to: targetDate, toGranularity: .month) == .orderedSame
                     }
-                }
                 return false
             }
             
+            
+            // append category (x values)
             for category in categoryList {
                 data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0, budget: category.value))
             }
             
+            
+            // append transaction amount (y values)
             for transaction in filteredTransactions
             {
                 if let categoryName = transaction.category?.name,
@@ -56,12 +56,10 @@ class IncomeSummaryViewController: UIViewController {
             }
         }
         
-
-
         super.viewDidLoad()
         
         //graphing
-        let controller = UIHostingController(rootView: ChartUIView(data: data, title: ""))
+        let controller = UIHostingController(rootView: BudgetChartUIView(data: data, title: "Cashflow in "))
         guard let chartView = controller.view else {
             return
         }
@@ -73,22 +71,18 @@ class IncomeSummaryViewController: UIViewController {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12.0),
-            chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12.0),
-            chartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12.0),
-            chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12.0)
-            
-            
-            
+            chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
+            chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0),
+            chartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0),
+            chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20.0)
+
         ])
-        
-        
+    
         
         chartController = controller
         
+        
+
     }
     
-    
 }
-
-

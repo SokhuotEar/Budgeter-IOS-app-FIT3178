@@ -40,14 +40,25 @@ func sendNotification(transaction: Transaction, dateComponents: DateComponents, 
 
     let notificationContent = UNMutableNotificationContent()
     // Create its details
-    notificationContent.title = "New Transaction"
-    notificationContent.subtitle = "transaction to/from \(transaction.toFrom ?? "")"
-    notificationContent.body = "The transaction of $\(transaction.amount) is scheduled to occur now"
+    
+    if transaction.transactionType == 2
+    {
+        notificationContent.title = "Lending is due"
+        notificationContent.subtitle = "Lending to \(transaction.toFrom ?? "")"
+        notificationContent.body = "The transaction of $\(transaction.amount) is due now"
+    }
+    else
+    {
+        notificationContent.title = "New Transaction"
+        notificationContent.subtitle = "transaction to/from \(transaction.toFrom ?? "")"
+        notificationContent.body = "The transaction of $\(transaction.amount) is scheduled to occur now"
+    }
     
     let uuid = UUID().uuidString
     let request = UNNotificationRequest(identifier: uuid,
      content: notificationContent, trigger: trigger)
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
     
 
 }

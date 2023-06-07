@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewTransationViewController: UIViewController, SelectCategoryProtocol, ConvertCurrency{
+class NewTransationViewController: UIViewController, SelectCategoryProtocol, ConvertCurrency, UITextFieldDelegate{
     
     var listenerType = ListenerType.all
     
@@ -57,9 +57,22 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
+        
+        
+        // set up text field delegates
+        toFromTextField.delegate = self
+        amountTextField.delegate = self
+        dateTextField.delegate = self
+        noteTextField.delegate = self
     }
 
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+    
+    
     func dateInputEnds(datePicker: UIDatePicker)
     {
         let dateFormatter = DateFormatter()
