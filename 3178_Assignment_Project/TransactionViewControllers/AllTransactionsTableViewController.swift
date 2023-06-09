@@ -57,13 +57,13 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionCell.dateLabel.text = dateString
         }
         
-        if TransactionType(rawValue: transaction.transactionType) == .income
+        if transaction.amount.isLess(than: 0)
         {
-            transactionCell.amountLabel.textColor = UIColor.systemGreen
+            transactionCell.amountLabel.textColor = UIColor.red
         }
         else
         {
-            transactionCell.amountLabel.textColor = UIColor.red
+            transactionCell.amountLabel.textColor = UIColor.systemGreen
         }
         
 
@@ -86,6 +86,11 @@ class AllTransactionsTableViewController: UITableViewController {
                             UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let transaction = transactionList[indexPath.row]
+            if TransactionType(rawValue: transaction.transactionType) == .lending
+            {
+                displayMessage(controller: self, title: "Cannot delete a lending transaction!" , message: "You cannot delete this transaction as it part of a lending. Consider marking the lending as paid instead to reverse the transaction")
+                return
+            }
             databaseController?.deleteTransaction(transaction: transaction)
         }
         

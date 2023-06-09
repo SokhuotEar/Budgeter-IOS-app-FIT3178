@@ -25,7 +25,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // create a new transaction to reflect this
         if let category = getCategory(name: DEFAULT_REPAYMENT)
         {
-            let _ = addTransaction(transactionType: .income, amount: abs(lending.amount), toFrom: lending.to ?? "", currency: .AUD, date: Date(), category: category, note: lending.note ?? "", recurring: .none)
+            let _ = addTransaction(transactionType: .lending, amount: abs(lending.amount), toFrom: lending.to ?? "", currency: .AUD, date: Date(), category: category, note: lending.note ?? "", recurring: .none)
         }
         
         allLendings = fetchAllLending()
