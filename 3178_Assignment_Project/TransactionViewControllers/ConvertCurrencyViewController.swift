@@ -7,7 +7,12 @@
 
 import UIKit
 
-class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, CallsConvertCurrencyProtocol{
+    
+    func displayError(error: Error) {
+        displayMessage(controller: self, title: "Error", message: String(describing: error))
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +43,19 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
             self.dateTextField.text = selectedDate
         }), for: .editingDidEnd)
         
+        // set keypad for amountTextField
+        amountTextField.keyboardType = .decimalPad
+        amountTextField.delegate = self
         
+        // make the keyboard disappear when touched on the screen
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+    
     
 
     @IBOutlet weak var amountTextField: UITextField!
@@ -54,21 +70,29 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
     
     
     @IBAction func convertButtonAction(_ sender: Any) {
-        var convertedAmount = 0.00000
+        var convertedAmount: Double?
         
         if let amountText = amountTextField.text, let dateText = dateTextField.text
         {
+            if dateText == ""
+            {
+                displayMessage(controller: self, title: "Error", message: "Please make sure date input is not empty")
+            }
             if let amount = Double(amountText)
             {
-//                convertedAmount = convert_from_date(amount: amount, from: selectedCurrency, to: "AUD", date: dateText)
-                convertedAmount = 7.77      // to be deleted
+                convertedAmount = convert_from_date(controller: self, amount: amount, from: "AUD", to: selectedCurrency, date: dateText)
                 
-                
-                convertCurrencyDelegate?.convertCurrency(amount: convertedAmount)
+                if let convertedAmount
+                {
+                    convertCurrencyDelegate?.convertCurrency(amount: convertedAmount)
+                }
+                else
+                {
+                    return
+                }
+
                 
                 navigationController?.popViewController(animated: true)
-                
-                
             }
             else
             {
@@ -101,4 +125,9 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
     }
     
     
+}
+
+protocol CallsConvertCurrencyProtocol
+{
+    func displayError(error: Error)
 }

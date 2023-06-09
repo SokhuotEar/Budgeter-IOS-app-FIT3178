@@ -23,10 +23,12 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         cleanup()
         
         // create a new transaction to reflect this
-        if let category = getCategory(name: "Default: Lending Repayment")
+        if let category = getCategory(name: DEFAULT_REPAYMENT)
         {
             let _ = addTransaction(transactionType: .income, amount: abs(lending.amount), toFrom: lending.to ?? "", currency: .AUD, date: Date(), category: category, note: lending.note ?? "", recurring: .none)
         }
+        
+        allLendings = fetchAllLending()
     }
     
     
@@ -146,8 +148,9 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         lending.id = UUID().uuidString
         lending.paid = false
         
-        allLendings = fetchAllLending()
+
         cleanup()
+        allLendings = fetchAllLending()
         
         print(lending.amount)
         // create new transaction to reflect the lending

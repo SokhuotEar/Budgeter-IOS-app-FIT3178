@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateNewCategoryViewController: UIViewController {
+class CreateNewCategoryViewController: UIViewController, UITextFieldDelegate{
 
     weak var databaseController: DatabaseProtocol?
     var caller: ManageBudgetTableViewController?
@@ -22,7 +22,17 @@ class CreateNewCategoryViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
+        // setup text fields and its delegate
+        valueTextField.delegate = self
+        nameTextField.delegate = self
+        valueTextField.keyboardType = .numbersAndPunctuation
         
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func CreateCategoryAction(_ sender: Any) {
@@ -40,16 +50,12 @@ class CreateNewCategoryViewController: UIViewController {
                     return
                 }
                 
-                if value.isLess(than: 0)
-                {
-                    displayMessage(controller: self, title: "Error", message: "Value must not be positive")
-                }
                 databaseController?.addCategory(name: name, value: Double(value) )
+                
                 if let caller
                 {
                     caller.loadData()
                 }
-
             }
             else
             {

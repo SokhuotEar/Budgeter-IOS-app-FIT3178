@@ -14,26 +14,33 @@ class AllLendingHistoryTableViewController: UITableViewController, MarkAsPaidPro
         loadData()
     }
     
-    
-
     var allLendings = [Lending]()
     var databaseController: DatabaseProtocol?
     let CELL_ID = "allLendingsHistoryCell"
     var selectedLending: Lending?
 
     override func viewDidLoad() {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
+        
+        if let databaseController
+        {
+            allLendings = databaseController.allLendings
+        }
+        
+        tableView.separatorStyle = .singleLine
         super.viewDidLoad()
 
-        tableView.separatorStyle = .singleLine
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
         
+        if let databaseController
+        {
+            allLendings = databaseController.allLendings
+        }
         loadData()
-
     }
     
 

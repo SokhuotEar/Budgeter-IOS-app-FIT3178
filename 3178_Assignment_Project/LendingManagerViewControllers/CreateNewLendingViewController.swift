@@ -7,16 +7,23 @@
 
 import UIKit
 
-class CreateNewLendingViewController: UIViewController {
+class CreateNewLendingViewController: UIViewController, ConvertCurrency {
+    func convertCurrency(amount: Double) {
+        amountTextField.text = String(amount)
+    }
+    
 
     var databaseController: DatabaseProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
 
         // Do any additional setup after loading the view.
         //amount text field
-        amountTextField.keyboardType = .numberPad
+        amountTextField.keyboardType = .decimalPad
         
         
         // date text field and date picker
@@ -35,8 +42,7 @@ class CreateNewLendingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
+
     }
     
 
@@ -88,10 +94,6 @@ class CreateNewLendingViewController: UIViewController {
                 return
             }
             
-            
-
-            
-            
             // create a new lending
             databaseController?.createNewLending(amount: amount_double, date: Date(), dueDate: dueDateDate, note: note, to: to)
             
@@ -100,6 +102,15 @@ class CreateNewLendingViewController: UIViewController {
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "convertCurrencyLendingSegue"
+        {
+            let destination = segue.destination as! ConvertCurrencyViewController
+            destination.convertCurrencyDelegate = self
+        }
+    }
+
     
 
 

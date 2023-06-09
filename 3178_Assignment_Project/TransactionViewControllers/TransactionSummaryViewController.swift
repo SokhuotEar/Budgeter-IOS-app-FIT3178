@@ -16,7 +16,17 @@ class TransactionSummaryViewController: UIViewController {
         {
             amountLabel.text = String(transaction.amount)
             toLabel.text = transaction.toFrom
-            recurringLabel.text = transaction.recurring.description
+            
+            if transaction.recurring == 0
+            {
+                recurringLabel.text = "No"
+            }
+            else
+            {
+                recurringLabel.text = "Yes"
+            }
+            
+            
             noteLabel.text = transaction.note
             
             if transaction.category != nil

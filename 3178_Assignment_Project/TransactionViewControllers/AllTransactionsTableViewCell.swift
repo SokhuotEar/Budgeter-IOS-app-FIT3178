@@ -16,7 +16,7 @@ class AllTransactionsTableViewCell: UITableViewCell {
     @IBOutlet weak var toFromLabel: UILabel!
     
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     

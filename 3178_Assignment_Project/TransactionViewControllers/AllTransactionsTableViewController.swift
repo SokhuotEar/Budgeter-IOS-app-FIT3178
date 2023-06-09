@@ -12,6 +12,7 @@ class AllTransactionsTableViewController: UITableViewController {
     var databaseController: DatabaseProtocol?
     var transactionList: [Transaction] = []
     var CELL_ID = "transactionCell"
+    var HEADER_CELL_ID = "transactionHeaderCell"
     var selectedTransaction: Transaction?
     
     
@@ -37,9 +38,6 @@ class AllTransactionsTableViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Date --  To or From -- Amount"
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -51,13 +49,12 @@ class AllTransactionsTableViewController: UITableViewController {
         let transactionCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! AllTransactionsTableViewCell
         let transaction = transactionList[indexPath.row]
         
-        if transaction.category != nil
+        if let date = transaction.date
         {
-            transactionCell.categoryLabel.text = transaction.category?.name
-        }
-        else
-        {
-            transactionCell.categoryLabel.text = "Other"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+            let dateString = dateFormatter.string(from: date)
+            transactionCell.dateLabel.text = dateString
         }
         
         if TransactionType(rawValue: transaction.transactionType) == .income
@@ -69,10 +66,20 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionCell.amountLabel.textColor = UIColor.red
         }
         
-        
+
         transactionCell.toFromLabel.text = transaction.toFrom
         transactionCell.amountLabel.text = String(describing: transaction.amount)
         return transactionCell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: HEADER_CELL_ID) as! AllTransactionsTableViewCell
+        return headerCell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle:

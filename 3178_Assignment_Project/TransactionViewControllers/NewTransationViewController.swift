@@ -20,8 +20,6 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
     }
     
     
-
-    
     @IBAction func SelectCurrencyButtonAction(_ sender: Any) {
     }
     
@@ -64,13 +62,15 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         amountTextField.delegate = self
         dateTextField.delegate = self
         noteTextField.delegate = self
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
 
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
+        textField.resignFirstResponder()
+        return true
+    }
     
     
     func dateInputEnds(datePicker: UIDatePicker)

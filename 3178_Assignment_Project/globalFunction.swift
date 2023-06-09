@@ -13,8 +13,10 @@ let DEFAULT_LENDING = "Default: Lending"
 let DEFAULT_REPAYMENT = "Default: Lending repayment"
 
 
+
 func displayMessage(controller: UIViewController,title: String, message: String){
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
     controller.present(alertController, animated: true, completion: nil)
 }
+

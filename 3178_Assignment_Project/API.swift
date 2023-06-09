@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 
 func convert(amount: Double, from: Currency, to: Currency)
@@ -24,24 +25,43 @@ func convert(amount: Double, from: Currency, to: Currency)
     return
 }
 
-func convert_from_date(amount: Double, from: String, to: String, date: String) -> Double
+enum MyError: Error {
+    case error(message: String)
+}
+
+func convert_from_date(controller: CallsConvertCurrencyProtocol, amount: Double, from: String, to: String, date: String) -> Double?
 {
     let semaphore = DispatchSemaphore (value: 0)
     var answer = 0.0000
+    
+    // verify date
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    guard let dateVerify = dateFormatter.date(from: date) else {
+        controller.displayError(error: MyError.error(message: "Date is inputted incorrectly"))
+        return nil
+    }
 
     let url = "https://api.apilayer.com/fixer/\(date)?symbols=\(from)&base=\(to)"
     var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
     request.httpMethod = "GET"
     request.addValue("v3V01N9HHslbAmD5tMLIzaNlGGlwwmXO", forHTTPHeaderField: "apikey")
-
+    
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       guard let data = data else {
-        print(String(describing: error))
+          if let error
+          {
+              DispatchQueue.main.async {
+                  controller.displayError(error: MyError.error(message: "Device or API Network Error! Please check your internet connection. Otherwise, try again later!"))
+              }
+              semaphore.signal()
+              return
+          }
+
         return
       }
       let reponse = String(data: data, encoding: .utf8)!
-        
-        
         
         if let jsonData = reponse.data(using: .utf8) {
             do {
@@ -53,7 +73,7 @@ func convert_from_date(amount: Double, from: String, to: String, date: String) -
                     print(rate)
                     print(answer)
                 } else {
-                    print("Error parsing JSON or retrieving rate.")
+                    return
                 }
             } catch {
                 print("Error parsing JSON: \(error.localizedDescription)")
@@ -62,15 +82,16 @@ func convert_from_date(amount: Double, from: String, to: String, date: String) -
             print("Invalid JSON string.")
         }
         
-      // convert
         
         
       semaphore.signal()
     }
 
-
     task.resume()
     semaphore.wait()
+    
+
+    
     return answer
     
 }
