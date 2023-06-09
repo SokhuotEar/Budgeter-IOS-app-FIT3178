@@ -36,7 +36,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         super.viewDidLoad()
         
         //amount text field
-        amountTextField.keyboardType = .numberPad
+        amountTextField.keyboardType = .decimalPad
         
         
         // date text field and date picker
@@ -151,10 +151,22 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
             displayMessage(controller: self, title: "Error", message: "Please make sure all the fields are filled")
             return
         }
+        //verification
+        if amountTextField.text?.count ?? 0 >= 8 || toFromTextField.text?.count ?? 0 >= 8
+        {
+            displayMessage(controller: self, title: "Error", message: "Plase make sure amount or to/from inputs are within 8 characters long")
+            return
+        }
         
         if date > Date()
         {
             displayMessage(controller: self, title: "Error", message: "Transaction cannot occur in the future.")
+        }
+        
+        guard let _ = Double(amount) else
+        {
+            displayMessage(controller: self, title: "Amount Input Error", message: "Please make sure amount is inputted appropriately")
+            return
         }
         
         //add
@@ -186,11 +198,11 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
                 components = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: date)
             
             case .none:
-                components = calendar.dateComponents([.minute, .second], from: date)
+                break
                 
         }
                         
-            sendNotification(transaction: transaction, dateComponents: components, repetition: true)
+            sendNotification(controller: self, transaction: transaction, dateComponents: components, repetition: true)
             
         }
         

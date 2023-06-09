@@ -8,12 +8,14 @@
 import UserNotifications
 import UIKit
 
-func requestPermissionNotification()
+func requestPermissionNotification(controller: UIViewController)
 {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
     { (granted, error) in
         if !granted {
-            print("Permission was not granted!")
+            DispatchQueue.main.async {
+                displayMessage(controller: controller, title: "Notification Disabled", message: "Notifications will not be sent due to notification being disabled")
+            }
             return
         }
     }
@@ -21,16 +23,14 @@ func requestPermissionNotification()
 
 
 
-func sendNotification(transaction: Transaction, dateComponents: DateComponents, repetition: Bool)
+func sendNotification(controller: UIViewController, transaction: Transaction, dateComponents: DateComponents, repetition: Bool)
 {
     var databaseController: DatabaseProtocol?
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     databaseController = appDelegate?.databaseController
     
     
-    requestPermissionNotification()
-    
-    
+    requestPermissionNotification(controller: controller)
     
     // Set a delayed trigger for the notification of 10 seconds
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: repetition)
@@ -43,15 +43,15 @@ func sendNotification(transaction: Transaction, dateComponents: DateComponents, 
     
     if transaction.transactionType == 2
     {
-        notificationContent.title = "Lending is due"
+        notificationContent.title = "Reminder: Lending is due"
         notificationContent.subtitle = "Lending to \(transaction.toFrom ?? "")"
-        notificationContent.body = "The transaction of $\(transaction.amount) is due now"
+        notificationContent.body = "The Lending of $\(abs(transaction.amount)) is due now"
     }
     else
     {
-        notificationContent.title = "New Transaction"
+        notificationContent.title = "\(String(describing: TransactionType(rawValue: transaction.transactionType))) + Reminder"
         notificationContent.subtitle = "transaction to/from \(transaction.toFrom ?? "")"
-        notificationContent.body = "The transaction of $\(transaction.amount) is scheduled to occur now"
+        notificationContent.body = "The transaction of $\(abs(transaction.amount)) is scheduled to occur now"
     }
     
     let uuid = UUID().uuidString

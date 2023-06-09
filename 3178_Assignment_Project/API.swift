@@ -38,7 +38,7 @@ func convert_from_date(controller: CallsConvertCurrencyProtocol, amount: Double,
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     
-    guard let dateVerify = dateFormatter.date(from: date) else {
+    guard dateFormatter.date(from: date) != nil else {
         controller.displayError(error: MyError.error(message: "Date is inputted incorrectly"))
         return nil
     }
@@ -50,7 +50,7 @@ func convert_from_date(controller: CallsConvertCurrencyProtocol, amount: Double,
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       guard let data = data else {
-          if let error
+          if error != nil
           {
               DispatchQueue.main.async {
                   controller.displayError(error: MyError.error(message: "Device or API Network Error! Please check your internet connection. Otherwise, try again later!"))

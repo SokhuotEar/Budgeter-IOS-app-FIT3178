@@ -19,8 +19,7 @@ class LendingManagerViewController: UIViewController {
             allLending = databaseController.allLendings
         }
         
-        // configure total ledning label and total pending label
-        
+        // configure total lending label and total pending label
         totalLendingLabel.text = String(describing: getTotalLending())
         totalPendingLabel.text = String(describing: getTotalPending())
     }

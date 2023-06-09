@@ -37,6 +37,21 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
         
         datePicker.addAction(UIAction(handler: { [weak self] action in
             guard let self = self else { return }
+            
+            let calendar = Calendar.current
+
+            // Get the start date of the last month
+            guard let lastMonthStartDate = calendar.date(byAdding: .month, value: -3, to: Date()) else {
+                return// Error getting the last month's start date
+            }
+            
+            // Compare the given date with the last month's start date
+            if datePicker.date < lastMonthStartDate
+            {
+                displayMessage(controller: self, title: "Date error", message: "Please enter a date no within the last 3 months")
+                return
+            }
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let selectedDate = dateFormatter.string(from: datePicker.date)

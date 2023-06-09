@@ -7,12 +7,13 @@
 
 import UIKit
 
-class CreateNewLendingViewController: UIViewController, ConvertCurrency {
+class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextFieldDelegate{
     func convertCurrency(amount: Double) {
         amountTextField.text = String(amount)
     }
     
-
+    @IBOutlet weak var sendNotificationSwitch: UISwitch!
+    
     var databaseController: DatabaseProtocol?
     
     override func viewDidLoad() {
@@ -39,6 +40,20 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency {
             self.dueDateTextField.text = selectedDate
         }), for: .editingDidEnd)
         
+        
+        // set text field delegate
+        amountTextField.delegate = self
+        dueDateTextField.delegate = self
+        noteTextField.delegate = self
+        toTextField.delegate = self
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,11 +78,6 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency {
                 return
             }
             
-            guard let  _ = Double(amount) else
-            {
-                displayMessage(controller: self, title: "Error", message: "Please make sure amount is inputted correctly!")
-                return
-            }
             
             guard let  amount_double = Double(amount) else
             {
@@ -95,7 +105,20 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency {
             }
             
             // create a new lending
-            databaseController?.createNewLending(amount: amount_double, date: Date(), dueDate: dueDateDate, note: note, to: to)
+            let transaction = databaseController?.createNewLending(amount: amount_double, date: Date(), dueDate: dueDateDate, note: note, to: to)
+            
+            if sendNotificationSwitch.isOn
+            {
+                if let transaction
+                {
+                    // set local notification
+                    // set up local notification for the due date
+                    let calendar = Calendar.current
+                    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dueDateDate)
+                    
+                    sendNotification(controller: self, transaction: transaction, dateComponents: components, repetition: false)
+                }
+            }
             
             navigationController?.popViewController(animated: true)
             

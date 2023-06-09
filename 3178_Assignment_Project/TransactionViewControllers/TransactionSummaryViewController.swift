@@ -40,7 +40,7 @@ class TransactionSummaryViewController: UIViewController {
             
             transactionTypeLabel.text = TransactionType(rawValue: transaction.transactionType)?.stringValue
             
-            if TransactionType(rawValue: transaction.transactionType) == .income
+            if transaction.amount >= 0
             {
                 amountLabel.textColor = UIColor.systemGreen
             }

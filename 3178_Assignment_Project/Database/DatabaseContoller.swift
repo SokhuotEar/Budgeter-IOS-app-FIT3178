@@ -32,7 +32,6 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     
-    var listeners = MulticastDelegate<DatabaseListener>()
 
     var balance: Double = 0
     
@@ -136,7 +135,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
     }
     
-    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String) {
+    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String) -> Transaction? {
         let lending = NSEntityDescription.insertNewObject(forEntityName: "Lending", into: persistentContainer.viewContext) as! Lending
         
         lending.dueDate = dueDate
@@ -159,16 +158,12 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             print(lending.amount)
             let transaction = addTransaction(transactionType: .lending, amount: -amount, toFrom: to, currency: .AUD, date: lending.date ?? Date(), category: category, note: note, recurring: .none)
             
-            // set local notification
-            // set up local notification for the due date
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: lending.dueDate ?? Date())
+
+
+            return transaction
         }
-        
 
-        
-
-        
+        return nil
     }
     
     func fetchAllLending() -> [Lending]
@@ -288,13 +283,7 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     
-    func addListener(listener: DatabaseListener) {
-        listeners.addDelegate(listener)
-        if listener.listenerType == .all {
-            listener.onTransactionChange(change: .update, transactions: [])
-        }
-    
-    }
+
     
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -351,9 +340,6 @@ class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         return  UserDefaults.standard.double(forKey: BALANCE_USER_DEFAULT_KEY)
     }
     
-    func removeListener(listener: DatabaseListener) {
-        listeners.removeDelegate(listener)
-    }
     
     func getCategory(name: String) -> Category?
     {

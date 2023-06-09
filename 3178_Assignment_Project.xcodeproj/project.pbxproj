@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31090B42A02260400EF2AB6 /* Transaction.swift */; };
 		E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1442A0CAAE60013979C /* OverviewViewController.swift */; };
 		E318B1472A0CB5140013979C /* SpendingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */; };
 		E31C22DC2A16494000D7526F /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C22DB2A16494000D7526F /* LocalNotification.swift */; };
@@ -62,7 +61,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E31090B42A02260400EF2AB6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E318B1442A0CAAE60013979C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSummaryViewController.swift; sourceTree = "<group>"; };
 		E31C22DB2A16494000D7526F /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
@@ -146,12 +144,11 @@
 				E376AA5829FB62930003D11F /* Assets.xcassets */,
 				E376AA5A29FB62930003D11F /* LaunchScreen.storyboard */,
 				E376AA5D29FB62930003D11F /* Info.plist */,
-				E31090B42A02260400EF2AB6 /* Transaction.swift */,
 				E377161E2A231F7D003D4DC0 /* LendingManagerViewControllers */,
 				E3D2EA2E2A036F4D0026B093 /* TransactionViewControllers */,
 				E3D2EA202A02498D0026B093 /* globalFunction.swift */,
+				E31C22DB2A16494000D7526F /* LocalNotification.swift */,
 				E3D2EA242A024F270026B093 /* Database.xcdatamodeld */,
-				E37EDC3C2A0A269100DF0EF9 /* graphStructure.swift */,
 			);
 			path = 3178_Assignment_Project;
 			sourceTree = "<group>";
@@ -212,11 +209,11 @@
 				E37EDC342A0A0B7C00DF0EF9 /* IncomeSummaryViewController.swift */,
 				E318B1462A0CB5140013979C /* SpendingSummaryViewController.swift */,
 				E318B1442A0CAAE60013979C /* OverviewViewController.swift */,
-				E31C22DB2A16494000D7526F /* LocalNotification.swift */,
 				E397ABC62A1F3C1D0081D44A /* ManageBudgetTableViewController.swift */,
 				E397ABC92A1F86790081D44A /* CreateNewCategoryViewController.swift */,
 				E377161A2A204A9C003D4DC0 /* ConvertCurrencyViewController.swift */,
 				E3FD1E152A3066CC00ACB29B /* CashFlowOverviewViewController.swift */,
+				E37EDC3C2A0A269100DF0EF9 /* graphStructure.swift */,
 			);
 			path = TransactionViewControllers;
 			sourceTree = "<group>";
@@ -308,7 +305,6 @@
 				E397ABC72A1F3C1D0081D44A /* ManageBudgetTableViewController.swift in Sources */,
 				E397ABC42A1F25C70081D44A /* Category+CoreDataProperties.swift in Sources */,
 				E318B1452A0CAAE60013979C /* OverviewViewController.swift in Sources */,
-				E31090B52A02260400EF2AB6 /* Transaction.swift in Sources */,
 				E376AA5029FB628F0003D11F /* AppDelegate.swift in Sources */,
 				E377161B2A204A9C003D4DC0 /* ConvertCurrencyViewController.swift in Sources */,
 				E33EDC002A2C6F2E005396E0 /* AllLendingHistoryTableViewCell.swift in Sources */,

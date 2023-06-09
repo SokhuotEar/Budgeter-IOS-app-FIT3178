@@ -21,19 +21,11 @@ enum ListenerType {
     case all
 }
 
-protocol DatabaseListener: AnyObject {
-    var listenerType: ListenerType {get set}
-    func onTransactionChange(change: DatabaseChange, transactions: [Transaction])
-}
 
 protocol DatabaseProtocol: AnyObject {
     func cleanup()
-    func addListener(listener: DatabaseListener)
-    func removeListener(listener: DatabaseListener)
     func addTransaction(transactionType: TransactionType, amount: Double, toFrom: String, currency: Currency, date: Date, category: Category, note: String, recurring: Recurring) -> Transaction
     func deleteTransaction(transaction: Transaction)
-    
-    // team
     var allTransactions: [Transaction] {get set}
     var categories: [Category] {get set}
     var allLendings: [Lending] {get set}
@@ -42,7 +34,7 @@ protocol DatabaseProtocol: AnyObject {
     func removeCategory(category: Category)
     
     func addCategory(name: String, value: Double)
-    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String)
+    func createNewLending(amount: Double, date: Date, dueDate: Date, note: String, to: String) -> Transaction?
     func markLendingAsPaid(lending: Lending)
     func removeLending(lending: Lending)
     func changeBudgetValueFor(category: Category, newValue: Double)
