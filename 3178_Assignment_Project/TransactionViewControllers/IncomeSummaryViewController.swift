@@ -9,7 +9,8 @@ import UIKit
 import Charts
 import SwiftUI
 
-
+/**
+ This screen shows income summary view controller, shows a graph and summary for the particular month */
 class IncomeSummaryViewController: UIViewController {
     var chartController: UIHostingController<ChartUIView>?
     var transactionList: [Transaction]?
@@ -31,6 +32,7 @@ class IncomeSummaryViewController: UIViewController {
         if let transactionList, let categoryList{
             // constructing data
             
+            // filter transaction list, get only the income type, within the particular month
             let filteredTransactions = transactionList.filter { transaction in
                 if transaction.transactionType == TransactionType.income.rawValue {
                     let transactionDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date!)
@@ -43,10 +45,12 @@ class IncomeSummaryViewController: UIViewController {
                 return false
             }
             
+            // set category for graphing (x value)
             for category in categoryList {
                 data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0, budget: category.value))
             }
             
+            // set transaction for grahing (y value)
             for transaction in filteredTransactions
             {
                 if let categoryName = transaction.category?.name,
@@ -66,7 +70,7 @@ class IncomeSummaryViewController: UIViewController {
             return
         }
         
-
+        // set constraints and other view attributes
         view.addSubview(chartView)
         addChild(controller)
         

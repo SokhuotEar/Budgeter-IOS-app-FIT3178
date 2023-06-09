@@ -9,7 +9,9 @@
 import Foundation
 import CoreData
 
-
+/**
+ Database for Lending
+ */
 extension Lending {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Lending> {

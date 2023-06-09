@@ -8,9 +8,11 @@
 import UIKit
 import SwiftUI
 
+/**
+ This controller shows expense summary, shows a graph and summary for the particular month  described by "monthYear"*/
 class SpendingSummaryViewController: UIViewController {
     
-    
+    // attributes
     var chartController: UIHostingController<ChartUIView>?
     var transactionList: [Transaction]?
     var categoryList: [Category]?
@@ -31,12 +33,14 @@ class SpendingSummaryViewController: UIViewController {
         // preparing data struct for graphing
         var data: [TransactionSummaryGraphStruct] = []
         if let transactionList, let categoryList{
-            // constructing data
             
+            // constructing data
+            // get transaction of expense type only, and is within the particular month
             let filteredTransactions = transactionList.filter { transaction in
                 if transaction.transactionType == TransactionType.expense.rawValue {
                     let transactionDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date ?? Date())
                     
+                    // if it is within the particular month
                     if let transactionDate = Calendar.current.date(from: transactionDateComponents),
                        let targetDate = Calendar.current.date(from: monthYear) {
                         return Calendar.current.compare(transactionDate, to: targetDate, toGranularity: .month) == .orderedSame
@@ -45,11 +49,12 @@ class SpendingSummaryViewController: UIViewController {
                 return false
             }
             
+            // prepare category data (x values) for graphing
             for category in categoryList {
                 data.append(TransactionSummaryGraphStruct(categoryName: category.name ?? "", value: 0, budget: category.value))
             }
             
-            // append transaction amount (y values)
+            // append transaction amount (y values) for graphing
             for transaction in filteredTransactions
             {
                 if let categoryName = transaction.category?.name,
@@ -67,6 +72,7 @@ class SpendingSummaryViewController: UIViewController {
             return
         }
         
+        // configure the view for the graph
         view.addSubview(chartView)
         addChild(controller)
         

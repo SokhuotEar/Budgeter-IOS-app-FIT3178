@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ This claass shows transaction summary of a particular transaction.
+ */
 class TransactionSummaryViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -14,9 +17,11 @@ class TransactionSummaryViewController: UIViewController {
 
         if let transaction
         {
+            // show texts to amount, to, reccuring, note labels
             amountLabel.text = String(transaction.amount)
             toLabel.text = transaction.toFrom
             
+            // set texts to reflect recurring for the transaction
             if transaction.recurring == 0
             {
                 recurringLabel.text = "No"
@@ -26,9 +31,10 @@ class TransactionSummaryViewController: UIViewController {
                 recurringLabel.text = "Yes"
             }
             
-            
+            // note label
             noteLabel.text = transaction.note
             
+            // get the category. Guard it in case it is null (it shouldnt ever null anyway)
             if transaction.category != nil
             {
                 categoryLabel.text = transaction.category?.name
@@ -40,6 +46,7 @@ class TransactionSummaryViewController: UIViewController {
             
             transactionTypeLabel.text = TransactionType(rawValue: transaction.transactionType)?.stringValue
             
+            // green if amount is positive, red if negative
             if transaction.amount >= 0
             {
                 amountLabel.textColor = UIColor.systemGreen
@@ -59,11 +66,10 @@ class TransactionSummaryViewController: UIViewController {
         }
     }
     
+    /** labels */
     var transaction: Transaction?
     @IBOutlet weak var transactionTypeLabel: UILabel!
-    
-    @IBAction func doneButtonAction(_ sender: Any) {
-    }
+
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var recurringLabel: UILabel!

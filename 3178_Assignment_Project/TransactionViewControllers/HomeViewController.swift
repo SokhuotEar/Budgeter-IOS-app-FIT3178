@@ -7,27 +7,38 @@
 
 import UIKit
 
+/**
+ A View controller that represents the first screen after app launches
+ */
 class HomeViewController: UIViewController{
     
-    
-    var listenerType = ListenerType.all
     var selectedDate: Date?
+    
+    // basic labels on the screen
     @IBOutlet weak var incomeThisMonthLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var budgetLeftToSpendLabel: UILabel!
     @IBOutlet weak var spendingThisMonthLabel: UILabel!
     
+    // transactions, lendings, categories array from the database
     var allTransactions = [Transaction]()
     var allLending = [Lending]()
     var allCategories = [Category]()
     var dateFormatter = DateFormatter()
     
+    /**
+     This function updates the label incomeThisMonthLabel, balanceLabel, budgetLeftToSpendLabel, spendingThisMonthLabel
+    This functiuon is called after the month label changes value
+     */
     func updateData()
     {
+        // reload the database
         reloadDatabase()
+        
+        // set date formatter
         dateFormatter.dateFormat = "MMMM yyyy"
         
-        // prapare
+        // prapare the labels
         incomeThisMonthLabel.text = "0"
         budgetLeftToSpendLabel.text = "0"
         spendingThisMonthLabel.text = "0"
@@ -63,21 +74,19 @@ class HomeViewController: UIViewController{
             }
         }
         
-        // update monthly cashflow
+        // update monthly cashflow ( cash flow = income - spending)
         if let spendingText = spendingThisMonthLabel.text,
            let incomeText = incomeThisMonthLabel.text,
            let spendingAmount = Double(spendingText),
            let incomeAmount = Double(incomeText) {
             let budgetLeft = incomeAmount - spendingAmount
             budgetLeftToSpendLabel.text = String(budgetLeft)
-            
-
         }
-        
-
-        
     }
     
+    /**
+     Get data fro m the database again in case any changes in database occurs.=
+     */
     func reloadDatabase()
     {
         if let databaseController
@@ -94,7 +103,9 @@ class HomeViewController: UIViewController{
 
     var databaseController: DatabaseProtocol?
     
-    
+    /**
+     View did load and then get the data from database
+     */
     override func viewDidLoad() {
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate

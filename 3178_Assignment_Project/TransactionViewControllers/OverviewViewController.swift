@@ -62,7 +62,7 @@ class OverviewViewController: UIViewController {
         spendingThisMonthLabel.text = "0"
         
         
-        // update monthly income based on the month determined by monthLabel
+        // update monthly income label text based on the month determined by monthLabel
         for transaction in allTransactions {
             if TransactionType(rawValue: transaction.transactionType) == .income
             {
@@ -77,7 +77,7 @@ class OverviewViewController: UIViewController {
                 }
             }
             
-            // update monthly spending based on the month determined by monthLabel
+            // update monthly spending label text based on the month determined by monthLabel
             else if TransactionType(rawValue: transaction.transactionType) == .expense
             {
                 let formattedDate = dateFormatter.string(from: transaction.date ?? Date())
@@ -105,6 +105,7 @@ class OverviewViewController: UIViewController {
         
     }
     
+    // reload the datebase in case any changes happens)
     func reloadDatabase()
     {
         if let databaseController
@@ -116,16 +117,19 @@ class OverviewViewController: UIViewController {
     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // date conversion
+        
+        // date conversion in preparation for sending to the segue destination.
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
 
+        // convert monthYear string to date conponent type
         var components: DateComponents = DateComponents()
         if let date = dateFormatter.date(from: monthTextField.text ?? "") {
             let calendar = Calendar.current
             components = calendar.dateComponents([.month, .year], from: date)
         }
         
+        // it sends the monthYear as it determines in which month to graph the data
         if segue.identifier == "incomeOverviewSegue"
         {
             let destination = segue.destination as! IncomeSummaryViewController

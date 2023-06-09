@@ -83,10 +83,13 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
     var selectedCurrency: String = ""
     
     
-    
+    /**
+     Handles the action when the user presses confirms currency conversion
+     */
     @IBAction func convertButtonAction(_ sender: Any) {
         var convertedAmount: Double?
         
+        //
         if let amountText = amountTextField.text, let dateText = dateTextField.text
         {
             if dateText == ""
@@ -120,7 +123,7 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
     
     
     
-    // picker view ------------------------------------------------------
+    // picker view for the currency display so users can select ------------------------------------------------------
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // We only need one column
@@ -142,6 +145,8 @@ class ConvertCurrencyViewController: UIViewController, UIPickerViewDataSource, U
     
 }
 
+/** This protocol allows interaction between this view controller and its caller controller, to display error message that ocurrs due to working with API
+ */
 protocol CallsConvertCurrencyProtocol
 {
     func displayError(error: Error)

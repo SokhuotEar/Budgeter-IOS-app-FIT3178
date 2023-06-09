@@ -7,12 +7,17 @@
 
 import UIKit
 
+/**
+ Cell class that represents the cell used by AllTransactionViewController
+ */
 class AllTransactionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    /** Outlets to labels*/
     @IBOutlet weak var toFromLabel: UILabel!
     
     @IBOutlet weak var amountLabel: UILabel!

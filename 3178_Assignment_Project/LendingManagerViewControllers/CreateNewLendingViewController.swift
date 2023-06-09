@@ -8,10 +8,15 @@
 import UIKit
 
 class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextFieldDelegate{
+    
+    /*
+     Update the text field for amount, after the user performs a currency conversion
+     */
     func convertCurrency(amount: Double) {
         amountTextField.text = String(amount)
     }
     
+    // a switch taht represents whehter the user wants to turn on notification or not
     @IBOutlet weak var sendNotificationSwitch: UISwitch!
     
     var databaseController: DatabaseProtocol?
@@ -19,15 +24,16 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextF
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // get value from database
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
 
         // Do any additional setup after loading the view.
-        //amount text field
+        //amount text field to have decimal keypad
         amountTextField.keyboardType = .decimalPad
         
         
-        // date text field and date picker
+        // date text field and set its input type to be of a date picker
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         dueDateTextField.inputView = datePicker
@@ -47,45 +53,46 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextF
         noteTextField.delegate = self
         toTextField.delegate = self
         
+        // add this so that when user taps outside the keyboard, it disappears
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
     }
     
+    // make the keyboard return for a text feild
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
 
-    }
     
-
+    // define outlet
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
-    
     @IBOutlet weak var dueDateTextField: UITextField!
-    
 
     @IBOutlet weak var noteTextField: UITextField!
     
-    
+    /**
+     This function handles when the user confirms the lending addiition
+     */
     @IBAction func confirmButtonAction(_ sender: Any) {
         if let to = toTextField.text, let amount = amountTextField.text, let dueDate = dueDateTextField.text, let note = noteTextField.text {
             
+            // verify if any input is empty
             if to == "" || amount == "" || dueDate == "" || note == "" {
                 displayMessage(controller: self, title: "Error", message: "Please fill all the inputs")
                 return
             }
             
-            
+            // verify if amount is inputted correctly
             guard let  amount_double = Double(amount) else
             {
                 displayMessage(controller: self, title: "Error", message: "Please make sure amount is inputted correctly!")
                 return
             }
             
-            // verify date
+            // verify if date is inputted corretly (due date should not be in the past)
             let dateFormatter = DateFormatter()
             var dueDateDate = Date()
             dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -98,6 +105,7 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextF
                 return
             }
             
+            // send error if due date is in the past
             if dueDateDate < Date()
             {
                 displayMessage(controller: self, title: "Due Date Error", message: "Due date must be in the future")
@@ -107,6 +115,8 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextF
             // create a new lending
             let transaction = databaseController?.createNewLending(amount: amount_double, date: Date(), dueDate: dueDateDate, note: note, to: to)
             
+            
+            // if the user wants to send notification
             if sendNotificationSwitch.isOn
             {
                 if let transaction
@@ -127,6 +137,8 @@ class CreateNewLendingViewController: UIViewController, ConvertCurrency, UITextF
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // prepare for segue when the user clicks on convert currency
         if segue.identifier == "convertCurrencyLendingSegue"
         {
             let destination = segue.destination as! ConvertCurrencyViewController

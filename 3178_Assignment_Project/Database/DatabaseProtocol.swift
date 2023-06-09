@@ -11,17 +11,8 @@ import Foundation
 import Foundation
 
 
-enum DatabaseChange {
-    case add
-    case remove
-    case update
-}
-
-enum ListenerType {
-    case all
-}
-
-
+/** Define database protocol
+ */
 protocol DatabaseProtocol: AnyObject {
     func cleanup()
     func addTransaction(transactionType: TransactionType, amount: Double, toFrom: String, currency: Currency, date: Date, category: Category, note: String, recurring: Recurring) -> Transaction

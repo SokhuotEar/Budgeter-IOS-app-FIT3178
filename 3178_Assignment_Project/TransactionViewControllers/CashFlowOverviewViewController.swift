@@ -8,6 +8,9 @@
 import UIKit
 import SwiftUI
 
+/**
+ Controller that displays the cashFlow summary, similarly to IncomeSummaryViewController and ExpenseSummaryViewController
+ CashFlow = income - expense */
 class CashFlowOverviewViewController: UIViewController {
 
     var chartController: UIHostingController<BudgetChartUIView>?

@@ -7,16 +7,16 @@
 
 import Foundation
 
-//
+//  Source:
 //  ChartUIView.swift
 //  FIT3178-Week09-LabSolution
 //
-//  Created by Jason Haasz on 29/4/2023.
 //
 
 import SwiftUI
 import Charts
 
+/** the strct that aids with graphing*/
 struct TransactionSummaryGraphStruct: Identifiable {
     var id = UUID()
     var categoryName: String
@@ -24,7 +24,7 @@ struct TransactionSummaryGraphStruct: Identifiable {
     var budget: Double
 }
 
-
+/** chat ui view struct for grpahing for income or  spending summary*/
 struct ChartUIView: View {
     var data: [TransactionSummaryGraphStruct]
     var title: String
@@ -35,12 +35,14 @@ struct ChartUIView: View {
             Chart(data) { categoryData in
                 BarMark(x: .value("Category", categoryData.categoryName),
                         y: .value("Amount", categoryData.value))
+                // set annotation for each bar grpah
                 .annotation(content: {
                     Text(String(format: "%.2f", categoryData.value)).font(.headline)
                 })
                 
             }
             Spacer()
+            // shows the list of data for each category at below the graph
             List(data) { datum in
                 VStack(alignment: .leading)
                 {
@@ -58,13 +60,16 @@ struct ChartUIView: View {
     }
 }
 
+/** chat ui view struct for grpahing for cashflow summary*/
 struct BudgetChartUIView: View {
     var data: [TransactionSummaryGraphStruct]
     var title: String
 
+    // body
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
+            // chart
             Chart(data) { categoryData in
                 BarMark(x: .value("Category", categoryData.categoryName),
                         y: .value("Amount", categoryData.value))
@@ -74,10 +79,13 @@ struct BudgetChartUIView: View {
             }.chartLegend(.visible)
             Spacer()
             Text("Summary").font(.title)
-            Text("Red for overspending").font(.footnote)
+            Text("Red if cashflow target is not achieved").font(.footnote)
+            
+            // the list that shows the cash flow for each category
             List(data) { datum in
                 VStack(alignment: .leading)
                 {
+                    // show category name
                     Spacer()
                     Text("\(datum.categoryName)").bold()
                     Spacer()
@@ -88,10 +96,10 @@ struct BudgetChartUIView: View {
                     }
                     Spacer()
                     HStack {
-
-                        if datum.value > datum.budget
+                        // shows
+                        if datum.value <= datum.budget
                         {
-                            Text("Overspend")
+                            Text("Not Achieved")
                             Spacer()
                             // round the value
                             Text(String(format: "%.2f", datum.value)).font(.headline).foregroundStyle(.red)
@@ -99,7 +107,7 @@ struct BudgetChartUIView: View {
                         else if datum.value <= datum.budget
                         {
 
-                            Text("Spending")
+                            Text("Achieved")
                             Spacer()
                             // round the value
                             Text(String(format: "%.2f", datum.value)).font(.headline).foregroundStyle(.green)

@@ -7,6 +7,8 @@
 
 import UIKit
 
+/**
+ UITableViewCell class that represents the cells used by PaidLendingTableViewController*/
 class PaidLendingsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -14,6 +16,9 @@ class PaidLendingsTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    /**
+     Outlet for displaying all the label
+     */
     @IBOutlet weak var paidByLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

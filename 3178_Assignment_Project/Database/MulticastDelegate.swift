@@ -6,7 +6,7 @@
 //
 
 
-//
+// source: 3178 lab week 4
 import Foundation
 
 class MulticastDelegate <T> {

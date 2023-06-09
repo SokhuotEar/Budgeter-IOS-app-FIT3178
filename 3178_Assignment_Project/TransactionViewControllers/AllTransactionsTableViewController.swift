@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ The table view controller that shows all the transactions in the history (income, expenses and lending)
+ */
 class AllTransactionsTableViewController: UITableViewController {
 
     var databaseController: DatabaseProtocol?
@@ -15,7 +18,7 @@ class AllTransactionsTableViewController: UITableViewController {
     var HEADER_CELL_ID = "transactionHeaderCell"
     var selectedTransaction: Transaction?
     
-    
+    /** view did load */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +34,7 @@ class AllTransactionsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -45,10 +48,11 @@ class AllTransactionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        // dequeue row
         let transactionCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! AllTransactionsTableViewCell
         let transaction = transactionList[indexPath.row]
         
+        // set text for date label in the cell
         if let date = transaction.date
         {
             let dateFormatter = DateFormatter()
@@ -57,6 +61,7 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionCell.dateLabel.text = dateString
         }
         
+        // set amount text label colour (red is negative, green if 0 or positive)
         if transaction.amount.isLess(than: 0)
         {
             transactionCell.amountLabel.textColor = UIColor.red
@@ -66,14 +71,17 @@ class AllTransactionsTableViewController: UITableViewController {
             transactionCell.amountLabel.textColor = UIColor.systemGreen
         }
         
-
+        // set texts to labels in the cell
         transactionCell.toFromLabel.text = transaction.toFrom
         transactionCell.amountLabel.text = String(describing: transaction.amount)
         return transactionCell
     }
     
+    /**
+     Create a header for the table view controller; shows the headings
+     */
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
+    
         let headerCell = tableView.dequeueReusableCell(withIdentifier: HEADER_CELL_ID) as! AllTransactionsTableViewCell
         return headerCell
     }
@@ -82,8 +90,13 @@ class AllTransactionsTableViewController: UITableViewController {
         return 50
     }
     
+    /**
+     Users can delete the transaction if it is an income type, expense type. If lending type, users cannot delete as it might lead to inconsistency
+     */
     override func tableView(_ tableView: UITableView, commit editingStyle:
                             UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // set delete function
         if editingStyle == .delete {
             let transaction = transactionList[indexPath.row]
             if TransactionType(rawValue: transaction.transactionType) == .lending
@@ -94,7 +107,7 @@ class AllTransactionsTableViewController: UITableViewController {
             databaseController?.deleteTransaction(transaction: transaction)
         }
         
-        
+        // get data from database again and reload data
         if let databaseController
         {
             transactionList = databaseController.allTransactions
@@ -104,13 +117,17 @@ class AllTransactionsTableViewController: UITableViewController {
     }
     
     
+    /**
+     When user clicks on a transaction cell, it will lead the user to the transaction summary page */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTransaction = transactionList[indexPath.row]
         performSegue(withIdentifier: "showTransactionSummarySegue", sender: self)
         
     }
 
-    
+    /**
+     Prepares segue to transaction summary page
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTransactionSummarySegue"
         {
@@ -123,6 +140,9 @@ class AllTransactionsTableViewController: UITableViewController {
         }
     }
     
+    /**
+     Get the data from the database and then reload data
+     */
     func loadData()
     {
         if let databaseController

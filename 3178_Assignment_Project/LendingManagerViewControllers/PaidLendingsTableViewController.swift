@@ -7,6 +7,10 @@
 
 import UIKit
 
+
+/**
+ A table view controller class that displays all the lending that has been marked as paid
+ */
 class PaidLendingsTableViewController: UITableViewController {
 
 
@@ -21,11 +25,12 @@ class PaidLendingsTableViewController: UITableViewController {
 
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        // get data from database the reload the table
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
         loadData()
-
     }
     
 
@@ -44,30 +49,20 @@ class PaidLendingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // set up cell for row at
         let lendingCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! PaidLendingsTableViewCell
         let lending = allPaidLendings[indexPath.row]
         
-        if indexPath.row.isMultiple(of: 2)
-        {
-            lendingCell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-        }
-        
+        // set up text for amount label
         lendingCell.amountLabel.text = String(describing: abs(lending.amount))
         
+        // set up date for date label
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         let dateString = dateFormatter.string(from: lending.dueDate ?? Date())
         
-        if lending.date! < Date()
-        {
-            
-            lendingCell.dueDateLabel.text = dateString
-        }
-        else{
-            lendingCell.dueDateLabel.text = dateString
-            lendingCell.dueDateLabel.textColor = .black
-        }
         
+        // set up other labels
         lendingCell.dateLabel.text = String(describing: dateFormatter.string(from: lending.date ?? Date()))
         lendingCell.toLabel.text = lending.to
         lendingCell.paidByLabel.text = String(describing: dateFormatter.string(from: lending.paidBy ?? Date()))
@@ -83,8 +78,12 @@ class PaidLendingsTableViewController: UITableViewController {
         return 220
     }
     
+    /**
+        If a lending is paid, it can be deleted. So set the delete functionality for this table view controller.
+     */
     override func tableView(_ tableView: UITableView, commit editingStyle:
                             UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
         if editingStyle == .delete
         {
             databaseController?.removeLending(lending: allPaidLendings[indexPath.row])
@@ -92,9 +91,14 @@ class PaidLendingsTableViewController: UITableViewController {
         }
     }
 
-    
+    /**
+            Descriptions done below
+     */
     func loadData()
     {
+        // get any updated data from the database
+        // then obtain only lendings that has been repaid
+        // then display on the table view
         if let databaseController
         {
             allPaidLendings = []

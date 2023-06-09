@@ -7,14 +7,15 @@
 
 import UIKit
 
+/**
+ This class is for UIViewController that creating a new transaction
+ */
 class NewTransationViewController: UIViewController, SelectCategoryProtocol, ConvertCurrency, UITextFieldDelegate{
     
-    var listenerType = ListenerType.all
-    
-    func onTransactionChange(change: DatabaseChange, transactions: [Transaction]) {
-        // do nothing
-    }
-    
+
+    /**
+     The protocol function that updates the amount text field after the user converts their currency
+     */
     func convertCurrency(amount: Double) {
         amountTextField.text = String(amount)
     }
@@ -26,6 +27,9 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
     
     @IBOutlet weak var CurrencyButton: UIButton!
     
+    /**
+     The protocol function that updates the category text field of a transaction after the user selected their category
+     */
     func selectCategory(category: Category){
         categoryLabel.text = category.name
         transactionCategory = category
@@ -39,7 +43,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         amountTextField.keyboardType = .decimalPad
         
         
-        // date text field and date picker
+        // set the date text field to appear a date picker to aid with user's selection
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         dateTextField.inputView = datePicker
@@ -53,6 +57,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         }), for: .editingDidEnd)
         
         
+        // get database
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         
@@ -63,6 +68,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         dateTextField.delegate = self
         noteTextField.delegate = self
         
+        // add gesture so that keybaord disppears upon touch
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
 
@@ -81,6 +87,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         dateTextField.text = selectedDate
     }
     
+    // outltes
     @IBOutlet weak var transactionTypeSegment: UISegmentedControl!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var recurringSegment: UISegmentedControl!
@@ -89,13 +96,17 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
     @IBOutlet weak var toFromTextField: UITextField!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var noteTextField: UITextField!
-    var transactionCategory: Category?
     
+    
+    var transactionCategory: Category?
     var databaseController: DatabaseProtocol?
     
+    /**
+     Handles the on-click event when the user confirms adding the transaction
+     */
     @IBAction func confirmButtonAction(_ sender: Any) {
         
-        //initialise variable
+        //initialise variable, set it to "" if nil
         let amount = amountTextField.text ?? ""
         let toFrom = toFromTextField.text ?? ""
         let note =  noteTextField.text ?? ""
@@ -145,39 +156,42 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         }
         
         
-        //verification
+        // Empty inputs verification, shows error if true
         if amountTextField.text == "" || toFromTextField.text == "" || dateTextField.text == "" || noteTextField.text == "" || categoryLabel.text == ""
         {
             displayMessage(controller: self, title: "Error", message: "Please make sure all the fields are filled")
             return
         }
-        //verification
+        //verification is the user enters too many digits
         if amountTextField.text?.count ?? 0 >= 8 || toFromTextField.text?.count ?? 0 >= 8
         {
             displayMessage(controller: self, title: "Error", message: "Plase make sure amount or to/from inputs are within 8 characters long")
             return
         }
         
+        // if transaction date is in the future, then show an error
         if date > Date()
         {
             displayMessage(controller: self, title: "Error", message: "Transaction cannot occur in the future.")
         }
         
+        // if amount is inputted inappropriately, show error
         guard let _ = Double(amount) else
         {
             displayMessage(controller: self, title: "Amount Input Error", message: "Please make sure amount is inputted appropriately")
             return
         }
         
-        //add
+        //add transaction
         let transaction = databaseController?.addTransaction(transactionType: transactionType, amount: Double(amount) ?? 0, toFrom: toFrom, currency: .AUD, date: date, category: transactionCategory!, note: note, recurring: recurring)
         
+        // in case error happens when trying to insert transaction to database
         guard let transaction else {
             displayMessage(controller: self, title: "Error", message: "Problem processing the transaction")
             return
         }
         
-        // set local notification
+        // set local notification if the switch button is fonw
         if (switchButton.isOn)
         {
             let calendar = Calendar.current
@@ -201,7 +215,7 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
                 break
                 
         }
-                        
+            // send notificatioon, display error if notification is disabled
             sendNotification(controller: self, transaction: transaction, dateComponents: components, repetition: true)
             
         }
@@ -211,11 +225,16 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
         
     }
     
+    /**
+     Prepare for segue
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // prepare segue to the screen that allows users to select category
         if segue.identifier == "selectCategory" {
             let destination = segue.destination as! SelectCategoryTableViewController
             destination.selectCategoryProtocol = self
         }
+        // prepare segue to the screen that allows users to convert currency
         if segue.identifier == "convertCurrencySegue"
         {
             let destination = segue.destination as! ConvertCurrencyViewController
@@ -225,12 +244,17 @@ class NewTransationViewController: UIViewController, SelectCategoryProtocol, Con
 
 }
 
+/**
+ Protocol that helps interaction between this controller to the select category controller
+ */
 protocol SelectCategoryProtocol: AnyObject
 {
     func selectCategory(category: Category)
 }
 
-
+/**
+ Protocol that helps interaction between this controller to convert currency controller
+ */
 protocol ConvertCurrency: AnyObject
 {
     func convertCurrency(amount: Double)

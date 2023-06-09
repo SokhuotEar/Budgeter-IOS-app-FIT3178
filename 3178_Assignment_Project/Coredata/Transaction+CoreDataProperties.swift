@@ -9,7 +9,9 @@
 import Foundation
 import CoreData
 
-
+/**
+ Database for transaction
+ */
 extension Transaction {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Transaction> {
@@ -33,7 +35,9 @@ extension Transaction : Identifiable {
 
 }
 
-
+/**
+ Set recurring to transaction: True or False
+ */
 extension Transaction{
     var recurringEnum: Recurring{
         get{
@@ -45,6 +49,9 @@ extension Transaction{
     }
 }
 
+/**
+ Set transaction type to transaction: income, expenses or lending
+ */
 extension Transaction{
     var typeEnum: TransactionType{
         get{
@@ -56,6 +63,9 @@ extension Transaction{
     }
 }
 
+/**
+ Set transaction category attribute for transaction
+ */
 extension Transaction{
     var categoryAttribute: Category?{
         get{
@@ -67,6 +77,9 @@ extension Transaction{
     }
 }
 
+/**
+ Currency enum
+ */
 enum Currency: Int32 {
     case USD=0
     case EUR=1
@@ -105,6 +118,9 @@ enum Currency: Int32 {
     }
 }
 
+/**
+ Transaction type enum: income, expense or lending
+ */
 enum TransactionType: Int32{
     case income = 0
     case expense = 1
@@ -123,6 +139,9 @@ enum TransactionType: Int32{
     }
 }
 
+/**
+ Recurring enum: weekly, fortnightly or monthly
+ */
 enum Recurring: Int32{
     case none = 0
     case weekly = 1
@@ -139,7 +158,6 @@ enum Recurring: Int32{
             return "Fortnightly"
         case .monthly:
             return "Monthly"
-
         }
     }
 }
